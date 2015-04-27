@@ -1,0 +1,3 @@
+".\output\inter_main.obj" 
+TO ".\output\inte" 
+PRINT(".\inte.m51") RAMSIZE(256) 

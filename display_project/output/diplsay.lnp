@@ -1,0 +1,3 @@
+".\output\display_main.obj" 
+TO ".\output\diplsay" 
+PRINT(".\diplsay.m51") RAMSIZE(256) 

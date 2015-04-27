@@ -1,0 +1,56 @@
+C51 COMPILER V9.00   INTER_MAIN                                                            04/27/2015 20:19:16 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE INTER_MAIN
+OBJECT MODULE PLACED IN .\output\inter_main.obj
+COMPILER INVOKED BY: F:\keil_for_51\C51\BIN\C51.EXE user\inter_main.c BROWSE DEBUG OBJECTEXTEND PRINT(.\inter_main.lst) 
+                    -OBJECT(.\output\inter_main.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          
+   3          #define uchar unsigned char
+   4          #define uint unsigned int
+   5          sbit led_1 = P0^0;
+   6          uchar count;
+   7          
+   8          
+   9          void main()
+  10          {
+  11   1              TMOD = 0x01;
+  12   1              TH0 = (65536-45872)     / 256;
+  13   1              TL0 = (65536-45872) % 256;
+  14   1              EA = 1;
+  15   1              ET0 = 1;
+  16   1              TR0 = 1;
+  17   1              while(1)
+  18   1              {
+  19   2                      if(count==20)   
+  20   2                      {
+  21   3                              count=0;
+  22   3                              led_1 = ~led_1;
+  23   3                      }
+  24   2              };
+  25   1      }
+  26          
+  27          void T0_time() interrupt 1
+  28          {
+  29   1              TH0 = (65536-45872)     / 256;
+  30   1              TL0 = (65536-45872) % 256;
+  31   1              count++;
+  32   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     36    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

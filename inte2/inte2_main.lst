@@ -1,0 +1,86 @@
+C51 COMPILER V9.00   INTE2_MAIN                                                            04/27/2015 23:01:11 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE INTE2_MAIN
+OBJECT MODULE PLACED IN .\output\inte2_main.obj
+COMPILER INVOKED BY: F:\keil_for_51\C51\BIN\C51.EXE user\inte2_main.c BROWSE DEBUG OBJECTEXTEND PRINT(.\inte2_main.lst) 
+                    -OBJECT(.\output\inte2_main.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define uchar unsigned char
+   3          #define uint unsigned int
+   4          
+   5          sbit seg_lock=P3^7;
+   6          
+   7          uchar code bit_select[8] = {0,1,2,3,4,5,6,7};
+   8          uchar code seg_table[]={
+   9          0x3f,0x06,0x5b,0x4f,
+  10          0x66,0x6d,0x7d,0x07,
+  11          0x7f,0x6f,0x77,0x7c,
+  12          0x39,0x5e,0x79,0x71};
+  13          uchar num,num1,num2,shi=0x00,ge=0x00;
+  14          
+  15          void display(uchar, uchar);
+  16          void delay_on(uint delay_time);         //延时函数
+  17          
+  18          
+  19          void main()
+  20          {
+  21   1              TMOD = 0x11;
+  22   1              TH0 = (65536-45872)     / 256;
+  23   1              TL0 = (65536-45872) % 256;
+  24   1              TH1 = (65536-45872)     / 256;
+  25   1              TL1 = (65536-45872) % 256;
+  26   1              EA = 1;
+  27   1              ET0 = 1;
+  28   1              ET1 = 1;
+  29   1              TR0 = 1;
+  30   1              TR1 = 1;
+  31   1              while(1)        
+  32   1              {
+  33   2                      display(shi,ge);
+  34   2              }
+  35   1      }
+  36          
+  37          void display(uchar shi, uchar ge)
+  38          {
+  39   1              seg_lock = 1;                   //送
+  40   1              P0 = seg_table[shi];    //段选
+  41   1              seg_lock = 0;                   //数据入74CH573
+  42   1              P0 = 0x00;                              //送位选信号前关闭所有显示，避免打开位选时原来数据
+  43   1              P2 = bit_select[0];
+  44   1              delay_on(5);
+  45   1      
+  46   1              seg_lock = 1;
+  47   1              P0 = seg_table[ge];
+  48   1              seg_lock = 0;
+  49   1              P0 = 0x00;
+  50   1              P2 = bit_select[1];
+  51   1              delay_on(5);
+  52   1      } 
+  53          
+  54          void delay_on(uint delay_time)
+C51 COMPILER V9.00   INTE2_MAIN                                                            04/27/2015 23:01:11 PAGE 2   
+
+  55          {
+  56   1              uint i;
+  57   1              uint j;
+  58   1              for(i=0;i<=delay_time;i++)
+  59   1                      for(j=0;j<=delay_time;j++);
+  60   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    126    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
