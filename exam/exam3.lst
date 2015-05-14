@@ -1,0 +1,110 @@
+C51 COMPILER V6.12  EXAM3                                                                  05/13/2015 22:01:18 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE EXAM3
+OBJECT MODULE PLACED IN .\output\exam3.obj
+COMPILER INVOKED BY: F:\keil_uv2\C51\BIN\C51.EXE .\user\exam3.c DEBUG OBJECTEXTEND PRINT(.\exam3.lst) OBJECT(.\output\ex
+                    -am3.obj) 
+
+stmt level    source
+
+   1          #include<reg52.h>
+   2          
+   3          #define uchar unsigned char
+   4          #define uint unsigned int
+   5          
+   6          uchar code table[]={			//共阳极数码管编码表
+   7          0xc0, 0xf9, 0xa4, 0xb0,
+   8          0x99, 0x92, 0x82, 0xf8,
+   9          0x80, 0x90, 0x88, 0x83,
+  10          0xc6, 0xa1, 0x86, 0x8e};
+  11          
+  12          uchar code seg_table[]={		//共阴极数码管编码表
+  13          0x3f, 0x06, 0x5b, 0x4f,
+  14          0x66, 0x6d, 0x7d, 0x07,
+  15          0x7f, 0x6f, 0x77, 0x7c,
+  16          0x39, 0x5e, 0x79, 0x71};
+  17          
+  18          void delay_on(uint delay_time)		//延时函数
+  19          {
+  20   1      	uint i;
+  21   1      	uint j;
+  22   1      	for(i=0; i<=delay_time; i++)
+  23   1      		for(j=0; j<=delay_time; j++);
+  24   1      }
+  25          
+  26          void display()
+  27          {
+  28   1      	uint num;
+  29   1      	for(num=0; num<=7; num++){
+  30   2      		P0 = table[num];
+  31   2      		delay_on(280);
+  32   2      		P0 = 0xff;
+  33   2      	}
+  34   1      }
+  35          
+  36          void stop_init()
+  37          {
+  38   1      	IT0 = 1;
+  39   1      	EX0 = 1;	//允许外部中断0开关
+  40   1      	
+  41   1      	IT1 = 1;
+  42   1      	EX1 = 1;	//允许外部中断1开关
+  43   1      	
+  44   1      //	PX0 = 0;
+  45   1      //	PX1	= 1;	//设置中断优先级
+  46   1      
+  47   1      	PX0 = 1;
+  48   1      	PX1 = 0;
+  49   1      	EA = 1;		//中断总开关
+  50   1      	
+  51   1      }
+  52          
+  53          void main()
+  54          {
+C51 COMPILER V6.12  EXAM3                                                                  05/13/2015 22:01:18 PAGE 2   
+
+  55   1      	stop_init();
+  56   1      	while(1){
+  57   2      		display();
+  58   2      	}
+  59   1      }
+  60          
+  61          void outside_stop0() interrupt 0
+  62          {
+  63   1      	uint num;
+  64   1      	for(num=0; num<=7; num++){
+  65   2      		P2 = table[num];
+  66   2      		delay_on(280);
+  67   2      		P2 = 0xff;
+  68   2      	}
+  69   1      		
+  70   1      }
+  71          
+  72          void outside_stop1() interrupt 2
+  73          {
+  74   1      	uint num;
+  75   1      	for(num=0; num<=7; num++){
+  76   2      		P1 = table[num];
+  77   2      		delay_on(280);
+  78   2      		P1 = 0xff;
+  79   2      	}
+  80   1      		
+  81   1      }
+  82          
+  83          
+  84          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    261    ----
+   CONSTANT SIZE    =     32    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,241 @@
+BL51 BANKED LINKER/LOCATER V4.13                                                        05/12/2015  14:20:36  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.13, INVOKED BY:
+F:\KEIL_UV2\C51\BIN\BL51.EXE .\output\exam3.obj TO .\output\exam4 PRINT (.\exam4.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\output\exam3.obj (EXAM3)
+  F:\KEIL_UV2\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\output\exam4 (EXAM3)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         _DATA_GROUP_
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     000CH     UNIT         ?C_C51STARTUP
+                    0012H     0001H                  *** GAP ***
+            CODE    0013H     0003H     ABSOLUTE     
+            CODE    0016H     0051H     UNIT         ?PR?OUTSIDE_STOP0?EXAM3
+            CODE    0067H     0051H     UNIT         ?PR?OUTSIDE_STOP1?EXAM3
+            CODE    00B8H     0027H     UNIT         ?PR?_DELAY_ON?EXAM3
+            CODE    00DFH     0025H     UNIT         ?PR?DISPLAY?EXAM3
+            CODE    0104H     0020H     UNIT         ?CO?EXAM3
+            CODE    0124H     000FH     UNIT         ?PR?STOP_INIT?EXAM3
+            CODE    0133H     0008H     UNIT         ?PR?MAIN?EXAM3
+
+
+
+OVERLAY MAP OF MODULE:   .\output\exam4 (EXAM3)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?PR?OUTSIDE_STOP0?EXAM3         0008H    0002H
+  +--> ?CO?EXAM3
+  +--> ?PR?_DELAY_ON?EXAM3
+
+*** NEW ROOT ***************************************************
+
+?PR?OUTSIDE_STOP1?EXAM3         000AH    0002H
+  +--> ?CO?EXAM3
+  +--> ?PR?_DELAY_ON?EXAM3
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                   -----    -----
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/12/2015  14:20:36  PAGE 2
+
+
+  +--> ?PR?MAIN?EXAM3
+
+?PR?MAIN?EXAM3                  -----    -----
+  +--> ?PR?STOP_INIT?EXAM3
+  +--> ?PR?DISPLAY?EXAM3
+
+?PR?DISPLAY?EXAM3               000CH    0002H
+  +--> ?CO?EXAM3
+  +--> ?PR?_DELAY_ON?EXAM3
+
+
+
+SYMBOL TABLE OF MODULE:  .\output\exam4 (EXAM3)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        EXAM3
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00B0H.4       PUBLIC        T0
+  B:00D0H.6       PUBLIC        AC
+  B:00B0H.5       PUBLIC        T1
+  B:0090H.0       PUBLIC        T2
+  B:00A8H.7       PUBLIC        EA
+  C:0104H         PUBLIC        table
+  D:00A8H         PUBLIC        IE
+  B:00C8H.6       PUBLIC        EXF2
+  B:00B0H.7       PUBLIC        RD
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:00B0H.2       PUBLIC        INT0
+  B:00D0H.7       PUBLIC        CY
+  B:0098H.1       PUBLIC        TI
+  B:00B0H.3       PUBLIC        INT1
+  B:00B8H.4       PUBLIC        PS
+  B:0090H.1       PUBLIC        T2EX
+  B:00D0H.2       PUBLIC        OV
+  C:0133H         PUBLIC        main
+  B:00C8H.1       PUBLIC        C_T2
+  B:00B0H.6       PUBLIC        WR
+  C:0114H         PUBLIC        seg_table
+  B:00C8H.5       PUBLIC        RCLK
+  B:00C8H.4       PUBLIC        TCLK
+  C:00BCH         PUBLIC        _delay_on
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0088H.1       PUBLIC        IE0
+  B:0088H.3       PUBLIC        IE1
+  B:00C8H.0       PUBLIC        CP_RL2
+  B:00A8H.1       PUBLIC        ET0
+  B:00A8H.3       PUBLIC        ET1
+  B:0088H.5       PUBLIC        TF0
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/12/2015  14:20:36  PAGE 3
+
+
+  B:00A8H.5       PUBLIC        ET2
+  B:0088H.7       PUBLIC        TF1
+  B:00C8H.7       PUBLIC        TF2
+  B:0098H.2       PUBLIC        RB8
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  B:0098H.3       PUBLIC        TB8
+  B:00A8H.2       PUBLIC        EX1
+  B:0088H.2       PUBLIC        IT1
+  B:00D0H.0       PUBLIC        P
+  B:0098H.7       PUBLIC        SM0
+  B:0098H.6       PUBLIC        SM1
+  B:0098H.5       PUBLIC        SM2
+  B:00B8H.1       PUBLIC        PT0
+  B:00B8H.3       PUBLIC        PT1
+  B:00D0H.3       PUBLIC        RS0
+  B:00B8H.5       PUBLIC        PT2
+  B:0088H.4       PUBLIC        TR0
+  B:00D0H.4       PUBLIC        RS1
+  B:0088H.6       PUBLIC        TR1
+  B:00C8H.2       PUBLIC        TR2
+  B:00B8H.0       PUBLIC        PX0
+  B:00B8H.2       PUBLIC        PX1
+  C:0016H         PUBLIC        outside_stop0
+  C:0067H         PUBLIC        outside_stop1
+  C:0124H         PUBLIC        stop_init
+  B:00C8H.3       PUBLIC        EXEN2
+  B:0098H.4       PUBLIC        REN
+  D:00C8H         PUBLIC        T2CON
+  B:00B0H.0       PUBLIC        RXD
+  B:00B0H.1       PUBLIC        TXD
+  B:00D0H.5       PUBLIC        F0
+  C:00DFH         PUBLIC        display
+  D:00D0H         PUBLIC        PSW
+  C:00B8H         SYMBOL        L?0030
+  -------         PROC          L?0029
+  -------         ENDPROC       L?0029
+  C:00B8H         SYMBOL        L?0030
+  -------         PROC          _DELAY_ON
+  D:0006H         SYMBOL        delay_time
+  -------         DO            delay_time
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         j
+  C:00BCH         LINE#         18
+  C:00BCH         LINE#         19
+  C:00BCH         LINE#         22
+  C:00C6H         LINE#         23
+  C:00DEH         LINE#         24
+  -------         ENDPROC       _DELAY_ON
+  -------         PROC          DISPLAY
+  -------         DO            DISPLAY
+  D:000CH         SYMBOL        num
+  -------         ENDDO         num
+  C:00DFH         LINE#         26
+  C:00DFH         LINE#         27
+  C:00DFH         LINE#         29
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/12/2015  14:20:36  PAGE 4
+
+
+  C:00E4H         LINE#         30
+  C:00ECH         LINE#         31
+  C:00EFH         LINE#         32
+  C:00F2H         LINE#         33
+  C:0103H         LINE#         34
+  -------         ENDPROC       DISPLAY
+  -------         PROC          STOP_INIT
+  C:0124H         LINE#         36
+  C:0124H         LINE#         37
+  C:0124H         LINE#         38
+  C:0126H         LINE#         39
+  C:0128H         LINE#         41
+  C:012AH         LINE#         42
+  C:012CH         LINE#         47
+  C:012EH         LINE#         48
+  C:0130H         LINE#         49
+  C:0132H         LINE#         51
+  -------         ENDPROC       STOP_INIT
+  -------         PROC          MAIN
+  C:0133H         LINE#         53
+  C:0133H         LINE#         54
+  C:0133H         LINE#         55
+  C:0136H         LINE#         56
+  C:0136H         LINE#         57
+  C:0139H         LINE#         58
+  -------         ENDPROC       MAIN
+  -------         PROC          OUTSIDE_STOP0
+  -------         DO            OUTSIDE_STOP0
+  D:0008H         SYMBOL        num
+  -------         ENDDO         num
+  C:0016H         LINE#         61
+  C:002DH         LINE#         64
+  C:0033H         LINE#         65
+  C:003BH         LINE#         66
+  C:003EH         LINE#         67
+  C:0041H         LINE#         68
+  C:0052H         LINE#         70
+  -------         ENDPROC       OUTSIDE_STOP0
+  -------         PROC          OUTSIDE_STOP1
+  -------         DO            OUTSIDE_STOP1
+  D:000AH         SYMBOL        num
+  -------         ENDDO         num
+  C:0067H         LINE#         72
+  C:007EH         LINE#         75
+  C:0084H         LINE#         76
+  C:008CH         LINE#         77
+  C:008FH         LINE#         78
+  C:0092H         LINE#         79
+  C:00A3H         LINE#         81
+  -------         ENDPROC       OUTSIDE_STOP1
+  -------         ENDMOD        EXAM3
+
+******************************************************************************
+* RESTRICTED VERSION WITH FFFFH BYTE CODE SIZE LIMIT; USED: 013BH BYTE ( 0%) *
+******************************************************************************
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

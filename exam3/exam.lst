@@ -1,0 +1,83 @@
+A51 MACRO ASSEMBLER  EXAM                                                                 05/14/2015 12:03:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.12
+OBJECT MODULE PLACED IN .\output\exam.obj
+ASSEMBLER INVOKED BY: F:\keil_uv2\C51\BIN\A51.EXE .\user\exam.asm SET(SMALL) DEBUG PRINT(.\exam.lst) OBJECT(.\output\exa
+                      m.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020030            2     LJMP INIT
+0003                   3     ORG 0003H
+0003 02005A            4     LJMP INTERRU0
+0013                   5     ORG 0013H
+0013 02005E            6     LJMP INTERRU1
+                       7     
+0030                   8     ORG 0030H
+0030 D288              9     INIT:   SETB IT0
+0032 D28A             10             SETB IT1
+0034 D2A8             11             SETB EX0
+0036 D2AA             12             SETB EX1
+0038 D2AF             13             SETB EA
+                      14             
+003A 7900             15     START:  MOV R1,#00H
+003C 7A09             16             MOV R2,#9
+003E 90005F           17             MOV DPTR,#TABLE
+0041 E9               18     MAIN:   MOV A,R1
+0042 93               19             MOVC A,@A+DPTR
+0043 F580             20             MOV P0,A
+0045 7B14             21             MOV R3,#20
+0047 8000             22             SJMP DELAY
+                      23     
+0049 7FC8             24     DELAY:  MOV R7,#200
+004B 7E7D             25     DELAY1: MOV R6,#125
+004D DEFE             26     DELAY2: DJNZ R6,DELAY2
+004F DFFA             27             DJNZ R7,DELAY1
+0051 DBF6             28             DJNZ R3,DELAY
+0053 DA02             29             DJNZ R2,NEXTNUM
+0055 80E3             30             SJMP START
+                      31     
+0057 09               32     NEXTNUM:INC R1
+0058 80E7             33             SJMP MAIN
+                      34     
+005A 75A0A4           35     INTERRU0:MOV P2,#0a4H
+005D 32               36             RETI
+005E                  37     INTERRU1:
+005E 32               38             RETI
+                      39     
+005F C0F9A4B0         40     TABLE:DB 0xc0, 0xf9, 0xa4, 0xb0,0x99, 0x92, 0x82, 0xf8
+0063 999282F8                
+                      41     END     
+A51 MACRO ASSEMBLER  EXAM                                                                 05/14/2015 12:03:49 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0049H   A   
+DELAY1 . . . . . .  C ADDR   004BH   A   
+DELAY2 . . . . . .  C ADDR   004DH   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . .  B ADDR   00A8H.2 A   
+INIT . . . . . . .  C ADDR   0030H   A   
+INTERRU0 . . . . .  C ADDR   005AH   A   
+INTERRU1 . . . . .  C ADDR   005EH   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . .  B ADDR   0088H.2 A   
+MAIN . . . . . . .  C ADDR   0041H   A   
+NEXTNUM. . . . . .  C ADDR   0057H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   003AH   A   
+TABLE. . . . . . .  C ADDR   005FH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

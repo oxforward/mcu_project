@@ -7,3 +7,386 @@ F:\mcu_project\display_project\diplsay.uvproj
 Project File Date:  04/25/2015
 
 <h2>Output:</h2>
+Build target 'Target 1'
+compiling display_main.c...
+USER\DELAY_ON.H(2): warning C315: unknown #directive 'DEFINE'
+USER\DELAY_ON.H(15): warning C323: newline expected, extra characters found
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 001CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0037H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0052H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 006DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0088H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00A3H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00BEH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00D9H
+Program Size: data=9.0 xdata=0 code=258
+creating hex file from ".\output\diplsay"...
+".\output\diplsay" - 0 Error(s), 11 Warning(s).
+Build target 'Target 1'
+compiling display_main.c...
+USER\DELAY_ON.H(15): warning C323: newline expected, extra characters found
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 001CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0037H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0052H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 006DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0088H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00A3H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00BEH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00D9H
+Program Size: data=9.0 xdata=0 code=258
+creating hex file from ".\output\diplsay"...
+".\output\diplsay" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+compiling display_main.c...
+USER\DELAY_ON.H(15): warning C323: newline expected, extra characters found
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 001CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0037H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0052H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 006DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0088H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00A3H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00BEH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00D9H
+Program Size: data=9.0 xdata=0 code=258
+creating hex file from ".\output\diplsay"...
+".\output\diplsay" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+compiling display_main.c...
+USER\DELAY_ON.H(15): warning C323: newline expected, extra characters found
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 001CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0037H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0052H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 006DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0088H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00A3H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00BEH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00D9H
+Program Size: data=9.0 xdata=0 code=258
+creating hex file from ".\output\diplsay"...
+".\output\diplsay" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+compiling display_main.c...
+USER\DELAY_ON.H(16): warning C323: newline expected, extra characters found
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 001CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0037H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0052H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 006DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0088H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00A3H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00BEH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00D9H
+Program Size: data=9.0 xdata=0 code=258
+creating hex file from ".\output\diplsay"...
+".\output\diplsay" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+compiling display_main.c...
+USER\DELAY_ON.H(17): warning C323: newline expected, extra characters found
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 001CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0037H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0052H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 006DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0088H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00A3H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00BEH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00D9H
+Program Size: data=9.0 xdata=0 code=258
+creating hex file from ".\output\diplsay"...
+".\output\diplsay" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+compiling display_main.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 001CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0037H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0052H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 006DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 0088H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00A3H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00BEH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY_ON
+    MODULE:  .\output\display_main.obj (DISPLAY_MAIN)
+    ADDRESS: 00D9H
+Program Size: data=9.0 xdata=0 code=258
+creating hex file from ".\output\diplsay"...
+".\output\diplsay" - 0 Error(s), 9 Warning(s).
+Build target 'Target 1'
+compiling display_main.c...
+compiling delay_on.c...
+USER\DELAY_ON.C(1): error C141: syntax error near 'delay_time', expected ')'
+USER\DELAY_ON.C(3): error C141: syntax error near 'i'
+USER\DELAY_ON.C(3): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(4): error C141: syntax error near 'j'
+USER\DELAY_ON.C(4): error C202: 'j': undefined identifier
+USER\DELAY_ON.C(5): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(6): error C202: 'j': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling display_main.c...
+compiling delay_on.c...
+USER\DELAY_ON.C(1): error C141: syntax error near 'delay_time', expected ')'
+USER\DELAY_ON.C(3): error C141: syntax error near 'i'
+USER\DELAY_ON.C(3): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(4): error C141: syntax error near 'j'
+USER\DELAY_ON.C(4): error C202: 'j': undefined identifier
+USER\DELAY_ON.C(5): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(6): error C202: 'j': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling display_main.c...
+compiling delay_on.c...
+USER\DELAY_ON.C(1): error C141: syntax error near 'delay_time', expected ')'
+USER\DELAY_ON.C(3): error C141: syntax error near 'i'
+USER\DELAY_ON.C(3): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(4): error C141: syntax error near 'j'
+USER\DELAY_ON.C(4): error C202: 'j': undefined identifier
+USER\DELAY_ON.C(5): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(6): error C202: 'j': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling display_main.c...
+compiling delay_on.c...
+USER\DELAY_ON.C(1): error C141: syntax error near 'delay_time', expected ')'
+USER\DELAY_ON.C(3): error C141: syntax error near 'i'
+USER\DELAY_ON.C(3): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(4): error C141: syntax error near 'j'
+USER\DELAY_ON.C(4): error C202: 'j': undefined identifier
+USER\DELAY_ON.C(5): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(6): error C202: 'j': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling display_main.c...
+compiling delay_on.c...
+user\delay_on.c(2): warning C318: can't open file 'delay_on'
+USER\DELAY_ON.C(4): error C141: syntax error near 'delay_time', expected ')'
+USER\DELAY_ON.C(6): error C141: syntax error near 'i'
+USER\DELAY_ON.C(6): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(7): error C141: syntax error near 'j'
+USER\DELAY_ON.C(7): error C202: 'j': undefined identifier
+USER\DELAY_ON.C(8): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(9): error C202: 'j': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling display_main.c...
+compiling delay_on.c...
+user\delay_on.c(2): warning C318: can't open file 'delay_on'
+USER\DELAY_ON.C(4): error C141: syntax error near 'delay_time', expected ')'
+USER\DELAY_ON.C(6): error C141: syntax error near 'i'
+USER\DELAY_ON.C(6): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(7): error C141: syntax error near 'j'
+USER\DELAY_ON.C(7): error C202: 'j': undefined identifier
+USER\DELAY_ON.C(8): error C202: 'i': undefined identifier
+USER\DELAY_ON.C(9): error C202: 'j': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling display_main.c...
+compiling delay_on.c...
+linking...
+Program Size: data=9.0 xdata=0 code=293
+creating hex file from ".\output\diplsay"...
+".\output\diplsay" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling display_main.c...
+compiling delay_on.c...
+linking...
+Program Size: data=9.0 xdata=0 code=293
+creating hex file from ".\output\diplsay"...
+".\output\diplsay" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling display_main.c...
+compiling delay_on.c...
+linking...
+Program Size: data=9.0 xdata=0 code=293
+creating hex file from ".\output\diplsay"...
+".\output\diplsay" - 0 Error(s), 0 Warning(s).

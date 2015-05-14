@@ -1,0 +1,89 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/29/2015  20:07:27  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL_FOR_51\C51\BIN\BL51.EXE adc.obj, delay_on.obj TO adc RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  adc.obj (ADC)
+  delay_on.obj (DELAY_ON)
+
+
+LINK MAP OF MODULE:  adc (ADC)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0023H     UNIT         ?PR?_DELAY_ON?DELAY_ON
+
+
+
+OVERLAY MAP OF MODULE:   adc (ADC)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+
+
+SYMBOL TABLE OF MODULE:  adc (ADC)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ADC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         ENDMOD        ADC
+
+  -------         MODULE        DELAY_ON
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0098H         PUBLIC        SCON
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/29/2015  20:07:27  PAGE 2
+
+
+  D:0088H         PUBLIC        TCON
+  C:0000H         PUBLIC        _delay_on
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY_ON
+  D:0006H         SYMBOL        delay_time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0000H         LINE#         4
+  C:0000H         LINE#         5
+  C:0000H         LINE#         8
+  C:000AH         LINE#         9
+  C:0022H         LINE#         10
+  -------         ENDPROC       _DELAY_ON
+  -------         ENDMOD        DELAY_ON
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_ON?DELAY_ON
+
+*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
+
+Program Size: data=8.0 xdata=0 code=35
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

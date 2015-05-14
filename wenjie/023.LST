@@ -1,0 +1,92 @@
+C51 COMPILER V6.12  023                                                                    05/13/2015 22:33:16 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE 023
+OBJECT MODULE PLACED IN .\output\023.obj
+COMPILER INVOKED BY: F:\keil_uv2\C51\BIN\C51.EXE .\023.c DEBUG OBJECTEXTEND OBJECT(.\output\023.obj) 
+
+stmt level    source
+
+   1          #include<reg52.h>
+   2          unsigned char num,num1,i,j;
+   3          unsigned char code table[]={0xc0,0xf9,0xa4,0xb0, 0x99,0x92,0x82,0xf8,0x80,0x90,0x88,0x83, 0xc6,0xa1,0x86,0
+             -x8e}; 
+   4          void delayms( int xms);
+   5          void main()
+   6          {
+   7   1      	TMOD=0x01;
+   8   1      	TH1=(65536-50000)/256;
+   9   1      	TL1=(65536-50000)%256;//定时器0定时50ms
+  10   1      	IT0=1;//外部中断0下降沿触发
+  11   1      	IT1=1;	
+  12   1      	EX0=1;
+  13   1      	EX1=1;
+  14   1      	ET1=1;
+  15   1      	EA=1;//开总中断	
+  16   1      	TR1=1;//开定时器1
+  17   1      
+  18   1      	
+  19   1      	while(1)
+  20   1      	{
+  21   2         P0=table[num1];
+  22   2      	}
+  23   1      }
+  24          
+  25          
+  26          void T1_time() interrupt 3
+  27          {
+  28   1      	TH1=(65536-50000)/256;
+  29   1      	TL1=(65536-50000)%256;
+  30   1      	num++;
+  31   1      	if(num==20)
+  32   1      	{
+  33   2      		num=0;
+  34   2      		num1++;
+  35   2      		if(num1>8)
+  36   2      		 num1=0;
+  37   2      	}
+  38   1      
+  39   1      }
+  40          
+  41          void EX0_interrupt()interrupt 0
+  42          {
+  43   1      	P2=table[j];
+  44   1      	for(i=0;i>=8;i++)
+  45   1      	{
+  46   2      		P2=table[i];
+  47   2      		delayms(1000);
+  48   2      	}
+  49   1      }
+  50          
+  51          void EX1_interrupt()interrupt 2
+  52          {
+  53   1      	for(j=0;j>=8;j++)
+  54   1      	{
+C51 COMPILER V6.12  023                                                                    05/13/2015 22:33:16 PAGE 2   
+
+  55   2      		P1=table[j];
+  56   2      		delayms(1000);
+  57   2      	}
+  58   1      	P1 = table[15];
+  59   1      }
+  60          
+  61          void delayms(int xms)
+  62          {
+  63   1      	int x,y;
+  64   1      	for(x=xms;x>0;x--)
+  65   1      	 for(y=110;y>0;y--);
+  66   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    287    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

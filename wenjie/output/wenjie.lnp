@@ -1,0 +1,3 @@
+".\output\tye.obj" 
+TO ".\output\wenjie" 
+PRINT(".\wenjie.m51") RAMSIZE(256) 

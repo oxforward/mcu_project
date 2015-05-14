@@ -1,23 +1,12 @@
 #include <reg52.h>
 #include <intrins.h>
+#include "delay_on.h"
 
-#define uint unsigned int
-#define uchar unsigned char
 #define yuhui 2
 
 sbit seg_lock=P3^7;
 
 uchar code bit_select[8] = {0,1,2,3,4,5,6,7};
-
-
-
-void delay_on(uint delay_time)
-{
-	uint i;
-	uint j;
-	for(i=0;i<=delay_time;i++)
-		for(j=0;j<=delay_time;j++);
-}
 
 uchar code seg_table[]={
 0x3f,0x06,0x5b,0x4f,

@@ -1,0 +1,67 @@
+BL51 BANKED LINKER/LOCATER V4.13                                                        05/14/2015  11:50:06  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.13, INVOKED BY:
+F:\KEIL_UV2\C51\BIN\BL51.EXE .\output\exam.obj TO .\output\news PRINT (.\news.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\output\exam.obj (EXAM)
+
+
+LINK MAP OF MODULE:  .\output\news (EXAM)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0058H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\output\news (EXAM)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        EXAM
+  C:003FH         SYMBOL        DELAY
+  C:0041H         SYMBOL        DELAY1
+  C:0043H         SYMBOL        DELAY2
+  C:0037H         SYMBOL        MAIN
+  C:004DH         SYMBOL        NEXTNUM
+  D:0080H         SYMBOL        P0
+  C:0030H         SYMBOL        START
+  C:0050H         SYMBOL        TABLE
+  C:0000H         LINE#         2
+  C:0030H         LINE#         5
+  C:0032H         LINE#         6
+  C:0034H         LINE#         7
+  C:0037H         LINE#         8
+  C:0038H         LINE#         9
+  C:0039H         LINE#         10
+  C:003BH         LINE#         11
+  C:003DH         LINE#         12
+  C:003FH         LINE#         14
+  C:0041H         LINE#         15
+  C:0043H         LINE#         16
+  C:0045H         LINE#         17
+  C:0047H         LINE#         18
+  C:0049H         LINE#         19
+  C:004BH         LINE#         20
+  C:004DH         LINE#         22
+  C:004EH         LINE#         23
+  -------         ENDMOD        EXAM
+
+******************************************************************************
+* RESTRICTED VERSION WITH FFFFH BYTE CODE SIZE LIMIT; USED: 002BH BYTE ( 0%) *
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/14/2015  11:50:06  PAGE 2
+
+
+******************************************************************************
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

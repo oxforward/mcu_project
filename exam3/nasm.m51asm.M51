@@ -1,0 +1,58 @@
+BL51 BANKED LINKER/LOCATER V4.13                                                        05/13/2015  21:25:13  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.13, INVOKED BY:
+F:\KEIL_UV2\C51\BIN\BL51.EXE .\output\exam.obj TO .\output\nasm PRINT (.\nasm.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\output\exam.obj (EXAM)
+
+
+LINK MAP OF MODULE:  .\output\nasm (EXAM)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0088H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\output\nasm (EXAM)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        EXAM
+  C:0046H         SYMBOL        DELAY
+  C:0036H         SYMBOL        MAIN
+  C:0043H         SYMBOL        NUM
+  D:0080H         SYMBOL        P0
+  C:0030H         SYMBOL        START
+  C:0000H         LINE#         2
+  C:0030H         LINE#         5
+  C:0032H         LINE#         6
+  C:0033H         LINE#         7
+  C:0036H         LINE#         9
+  C:0039H         LINE#         10
+  C:003AH         LINE#         11
+  C:003CH         LINE#         12
+  C:003EH         LINE#         13
+  C:0040H         LINE#         14
+  C:0043H         LINE#         17
+  C:0044H         LINE#         18
+  C:0045H         LINE#         19
+  C:0046H         LINE#         21
+  C:0049H         LINE#         22
+  -------         ENDMOD        EXAM
+
+******************************************************************************
+* RESTRICTED VERSION WITH FFFFH BYTE CODE SIZE LIMIT; USED: 0025H BYTE ( 0%) *
+******************************************************************************
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

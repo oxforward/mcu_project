@@ -1,0 +1,19 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\mcu_project\com\com.uvproj
+Project File Date:  04/30/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling com.c...
+compiling delay_on.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_ON?DELAY_ON
+*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
+Program Size: data=8.0 xdata=0 code=35
+creating hex file from ".\output\com"...
+".\output\com" - 0 Error(s), 2 Warning(s).

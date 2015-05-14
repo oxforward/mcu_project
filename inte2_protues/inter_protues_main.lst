@@ -1,0 +1,117 @@
+C51 COMPILER V9.00   INTER_PROTUES_MAIN                                                    04/28/2015 11:31:15 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE INTER_PROTUES_MAIN
+OBJECT MODULE PLACED IN .\output\inter_protues_main.obj
+COMPILER INVOKED BY: F:\keil_for_51\C51\BIN\C51.EXE user\inter_protues_main.c BROWSE DEBUG OBJECTEXTEND PRINT(.\inter_pr
+                    -otues_main.lst) OBJECT(.\output\inter_protues_main.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define uchar unsigned char
+   3          #define uint unsigned int
+   4          
+   5          sbit seg_lock=P3^7;
+   6          sbit led_p3_0=P3^0;
+   7          
+   8          uchar code bit_select[8] = {0xfe,0xfd};
+   9          uchar code seg_table[]={
+  10          0x3f,0x06,0x5b,0x4f,
+  11          0x66,0x6d,0x7d,0x07,
+  12          0x7f,0x6f,0x77,0x7c,
+  13          0x39,0x5e,0x79,0x71};
+  14          uchar num,num1,num2,shi,ge;
+  15          
+  16          void display(uchar, uchar);
+  17          void delay_on(uint delay_time);         //延时函数
+  18          
+  19          
+  20          void main()
+  21          {
+  22   1              TMOD = 0x11;
+  23   1              TH0 = (65536-45872)     / 256;
+  24   1              TL0 = (65536-45872) % 256;
+  25   1              TH1 = (65536-45872)     / 256;
+  26   1              TL1 = (65536-45872) % 256;
+  27   1              EA = 1;
+  28   1              ET0 = 1;
+  29   1              ET1 = 1;
+  30   1              TR0 = 1;
+  31   1              TR1 = 1;
+  32   1              while(1)        
+  33   1              {
+  34   2                      display(shi,ge);
+  35   2              }
+  36   1      }
+  37          
+  38          void display(uchar shi, uchar ge)
+  39          {
+  40   1              seg_lock = 1;                   //送
+  41   1              P0 = seg_table[shi];    //段选
+  42   1              seg_lock = 0;                   //数据入74CH573
+  43   1              P0 = 0x00;                              //送位选信号前关闭所有显示，避免打开位选时原来数据
+  44   1              P2 = bit_select[0];
+  45   1              delay_on(1);
+  46   1      
+  47   1              seg_lock = 1;
+  48   1              P0 = seg_table[ge];
+  49   1              seg_lock = 0;
+  50   1              P0 = 0x00;
+  51   1              P2 = bit_select[1];
+  52   1              delay_on(1);
+  53   1      } 
+  54          
+C51 COMPILER V9.00   INTER_PROTUES_MAIN                                                    04/28/2015 11:31:15 PAGE 2   
+
+  55          void delay_on(uint delay_time)
+  56          {
+  57   1              uint i;
+  58   1              uint j;
+  59   1              for(i=0;i<=delay_time;i++)
+  60   1                      for(j=0;j<=delay_time;j++);
+  61   1      }
+  62          
+  63          void T0_timer() interrupt 1
+  64          {
+  65   1              TH0 = (65536-45872)     / 256;
+  66   1              TL0 = (65536-45872) % 256;      
+  67   1              num1++;
+  68   1              if(num1==4){
+  69   2                      num1 = 0;
+  70   2                      led_p3_0 = ~led_p3_0;
+  71   2              }
+  72   1      }
+  73          
+  74          void T1_timer() interrupt 3
+  75          {
+  76   1              TH0 = (65536-45872)     / 256;
+  77   1              TL0 = (65536-45872) % 256;
+  78   1              num2++;
+  79   1              if(num2==20){
+  80   2                      num2 = 0;
+  81   2                      num++;
+  82   2                      if(num==60){
+  83   3                              num = 0;
+  84   3                      }
+  85   2                      shi = num / 10;
+  86   2                      ge = num % 10;
+  87   2              }
+  88   1      }
+  89          
+  90          
+  91          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    209    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

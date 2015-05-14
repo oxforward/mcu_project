@@ -1,3 +1,4 @@
-".\output\display_main.obj" 
+".\output\display_main.obj",
+".\output\delay_on.obj" 
 TO ".\output\diplsay" 
 PRINT(".\diplsay.m51") RAMSIZE(256) 

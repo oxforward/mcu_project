@@ -1,0 +1,127 @@
+C51 COMPILER V9.00   KEYBOARD_MAIN                                                         04/28/2015 21:25:15 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE KEYBOARD_MAIN
+OBJECT MODULE PLACED IN .\ouput\keyboard_main.obj
+COMPILER INVOKED BY: F:\keil_for_51\C51\BIN\C51.EXE user\keyboard_main.c BROWSE DEBUG OBJECTEXTEND PRINT(.\keyboard_main
+                    -.lst) OBJECT(.\ouput\keyboard_main.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include"delay_on.h"
+   3          
+   4          sbit seg_lock = P3^7;
+   5          
+   6          sbit key17 = P3^4;
+   7          sbit key18 = P3^3;
+   8          sbit key19 = P3^2;
+   9          
+  10          uchar code bit_select[8] = {0,1,2,3,4,5,6,7};
+  11          uchar code seg_table[]={
+  12          0x3f,0x06,0x5b,0x4f,
+  13          0x66,0x6d,0x7d,0x07,
+  14          0x7f,0x6f,0x77,0x7c,
+  15          0x39,0x5e,0x79,0x71};
+  16          
+  17          uchar num, num_t0;
+  18          
+  19          void display(uchar displayNum)
+  20          {
+  21   1              uint shi, ge;
+  22   1              shi = displayNum / 10;
+  23   1              ge = displayNum % 10;
+  24   1      
+  25   1              seg_lock = 1;                   //送十位
+  26   1              P0 = seg_table[shi];    //段选
+  27   1              seg_lock = 0;                   //数据入74CH573
+  28   1              P0 = 0x00;                              //送位选信号前关闭所有显示，避免打开位选时原来数据
+  29   1              P2 = bit_select[0];
+  30   1              delay_on(1);
+  31   1      
+  32   1              seg_lock = 1;
+  33   1              P0 = seg_table[ge];             //送个位
+  34   1              seg_lock = 0;
+  35   1              P0 = 0x00;
+  36   1              P2 = bit_select[1];
+  37   1              delay_on(1);
+  38   1      }
+  39          
+  40          void init()
+  41          {
+  42   1              TMOD = 0x01;                                    //设置定时器0的工作方式1
+  43   1              TH0 = (65536-45872)     / 256;
+  44   1              TL0 = (65536-45872) % 256;
+  45   1              EA = 1;                                                 //开中断总开关                          
+  46   1              ET0 = 1;                                                //开定时器0开关
+  47   1      }
+  48          
+  49          void keyscan()
+  50          {
+  51   1              if(key17==0){                                   //key17对应P3.4
+  52   2                      delay_on(1);
+  53   2                      if(key17==0){
+  54   3                              while(!key17);                  //等待按键释放
+C51 COMPILER V9.00   KEYBOARD_MAIN                                                         04/28/2015 21:25:15 PAGE 2   
+
+  55   3                              TR0 = ~TR0;                             //启动或者停止定时器0
+  56   3                      }
+  57   2              }
+  58   1      
+  59   1              if(key18==0){                                   //key18对应P3.3
+  60   2                      delay_on(1);
+  61   2                      if(key18==0){
+  62   3                                      num = 0;                        
+  63   3                              while(!key18);
+  64   3                      }
+  65   2              }
+  66   1      
+  67   1              if(key19==0){                                   //key19对应P3.2
+  68   2                      delay_on(10);
+  69   2                      if(key19==0){
+  70   3                              num++;
+  71   3                              if(num==60){    
+  72   4                                      num = 0;                
+  73   4                              }
+  74   3                              while(!key19);
+  75   3                      }
+  76   2              }
+  77   1      }
+  78          
+  79          
+  80          void main()
+  81          {
+  82   1              init();
+  83   1              while(1){
+  84   2                      keyscan();
+  85   2                      display(num);
+  86   2              }
+  87   1      }
+  88          
+  89          void T0_timer() interrupt 1
+  90          {
+  91   1              TH0 = (65536-45872)     / 256;          //重装初值
+  92   1              TL0 = (65536-45872) % 256;
+  93   1              num_t0++;
+  94   1              if(num_t0==20){
+  95   2                      num_t0 = 0;
+  96   2                      num++;
+  97   2                      if(num==60){
+  98   3                              num = 0;
+  99   3                      }
+ 100   2              }
+ 101   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    201    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

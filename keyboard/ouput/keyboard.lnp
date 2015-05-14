@@ -1,0 +1,4 @@
+".\ouput\delay_on.obj",
+".\ouput\keyboard_main.obj" 
+TO ".\ouput\keyboard" 
+PRINT(".\keyboard.m51") RAMSIZE(256) 

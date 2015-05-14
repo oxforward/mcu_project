@@ -351,6 +351,11 @@
               <FileType>1</FileType>
               <FilePath>.\user\display_main.c</FilePath>
             </File>
+            <File>
+              <FileName>delay_on.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\delay_on.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

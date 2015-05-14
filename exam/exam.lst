@@ -1,0 +1,117 @@
+C51 COMPILER V9.00   EXAM                                                                  04/30/2015 22:37:50 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE EXAM
+OBJECT MODULE PLACED IN exam.obj
+COMPILER INVOKED BY: F:\keil_for_51\C51\BIN\C51.EXE user\exam.c BROWSE DEBUG OBJECTEXTEND PRINT(.\exam.lst) OBJECT(exam.
+                    -obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include"delay_on.h"
+*** WARNING C318 IN LINE 2 OF user\exam.c: can't open file 'delay_on.h'
+   3          
+   4          sbit seg_lock = P3^7;
+   5          
+   6          sbit key17 = P3^4;
+   7          sbit key18 = P3^3;
+   8          sbit key19 = P3^2;
+   9          
+  10          uchar code bit_select[8] = {0,1,2,3,4,5,6,7};
+*** ERROR C129 IN LINE 10 OF USER\EXAM.C: missing ';' before 'code'
+  11          uchar code seg_table[]={
+  12          0x3f,0x06,0x5b,0x4f,
+  13          0x66,0x6d,0x7d,0x07,
+  14          0x7f,0x6f,0x77,0x7c,
+  15          0x39,0x5e,0x79,0x71};
+  16          
+  17          uchar num, num_t0;
+  18          
+  19          void display(uchar displayNum)
+  20          {
+  21                  uint shi, ge;
+  22                  shi = displayNum / 10;
+  23                  ge = displayNum % 10;
+  24          
+  25                  seg_lock = 1;                   //送十位
+  26                  P0 = seg_table[shi];    //段选
+  27                  seg_lock = 0;                   //数据入74CH573
+  28                  P0 = 0x00;                              //送位选信号前关闭所有显示，避免打开位选时原来数据
+  29                  P2 = bit_select[0];
+  30                  delay_on(1);
+  31          
+  32                  seg_lock = 1;
+  33                  P0 = seg_table[ge];             //送个位
+  34                  seg_lock = 0;
+  35                  P0 = 0x00;
+  36                  P2 = bit_select[1];
+  37                  delay_on(1);
+  38          }
+  39          
+  40          void init()
+  41          {
+  42                  TMOD = 0x01;                                    //设置定时器0的工作方式1
+  43                  TH0 = (65536-45872)     / 256;
+  44                  TL0 = (65536-45872) % 256;
+  45                  EA = 1;                                                 //开中断总开关                          
+  46                  ET0 = 1;                                                //开定时器0开关
+  47          }
+  48          
+  49          void keyscan()
+  50          {
+  51                  if(key17==0){                                   //key17对应P3.4
+  52                          delay_on(1);
+C51 COMPILER V9.00   EXAM                                                                  04/30/2015 22:37:50 PAGE 2   
+
+  53                          if(key17==0){
+  54                                  while(!key17);                  //等待按键释放
+  55                                  TR0 = ~TR0;                             //启动或者停止定时器0
+  56                          }
+  57                  }
+  58          
+  59                  if(key18==0){                                   //key18对应P3.3
+  60                          delay_on(1);
+  61                          if(key18==0){
+  62                                          num = 0;                        
+  63                                  while(!key18);
+  64                          }
+  65                  }
+  66          
+  67                  if(key19==0){                                   //key19对应P3.2
+  68                          delay_on(10);
+  69                          if(key19==0){
+  70                                  num++;
+  71                                  if(num==60){    
+  72                                          num = 0;                
+  73                                  }
+  74                                  while(!key19);
+  75                          }
+  76                  }
+  77          }
+  78          
+  79          
+  80          void main()
+  81          {
+  82                  init();
+  83                  while(1){
+  84                          keyscan();
+  85                          display(num);
+  86                  }
+  87          }
+  88          
+  89          void T0_timer() interrupt 1
+  90          {
+  91                  TH0 = (65536-45872)     / 256;          //重装初值
+  92                  TL0 = (65536-45872) % 256;
+  93                  num_t0++;
+  94                  if(num_t0==20){
+  95                          num_t0 = 0;
+  96                          num++;
+  97                          if(num==60){
+  98                                  num = 0;
+  99                          }
+ 100                  }
+ 101          }
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  1 ERROR(S)

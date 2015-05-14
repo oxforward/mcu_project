@@ -1,0 +1,3 @@
+".\output\exam.obj" 
+TO ".\output\next" 
+PRINT(".\next.m51")

@@ -1,0 +1,3 @@
+".\output\com.obj" 
+TO ".\output\com" 
+PRINT(".\com.m51") RAMSIZE(256) 

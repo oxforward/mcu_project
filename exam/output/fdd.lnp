@@ -1,0 +1,3 @@
+".\output\exam3.obj" 
+TO ".\output\fdd" 
+PRINT(".\fdd.m51")

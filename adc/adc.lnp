@@ -1,0 +1,4 @@
+"adc.obj",
+"delay_on.obj" 
+TO "adc" 
+RAMSIZE(256) 

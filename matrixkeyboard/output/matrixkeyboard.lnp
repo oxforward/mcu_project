@@ -1,0 +1,4 @@
+".\output\delay_on.obj",
+".\output\matrixboard.obj" 
+TO ".\output\matrixkeyboard" 
+PRINT(".\matrixkeyboard.m51") RAMSIZE(256) 

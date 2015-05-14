@@ -1,0 +1,191 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/28/2015  11:31:15  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL_FOR_51\C51\BIN\BL51.EXE .\output\inter_protues_main.obj TO .\output\inter2_protues PRINT (.\inter2_protues.m51) 
+>> RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\output\inter_protues_main.obj (INTER_PROTUES_MAIN)
+  F:\KEIL_FOR_51\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\output\inter2_protues (INTER_PROTUES_MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         ?DT?INTER_PROTUES_MAIN
+            DATA    000DH     0001H     UNIT         _DATA_GROUP_
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     000CH     UNIT         ?C_C51STARTUP
+                    001AH     0001H                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+            CODE    001EH     0039H     UNIT         ?PR?_DISPLAY?INTER_PROTUES_MAIN
+            CODE    0057H     0038H     UNIT         ?PR?T1_TIMER?INTER_PROTUES_MAIN
+            CODE    008FH     0023H     UNIT         ?PR?_DELAY_ON?INTER_PROTUES_MAIN
+            CODE    00B2H     0022H     UNIT         ?PR?MAIN?INTER_PROTUES_MAIN
+            CODE    00D4H     001BH     UNIT         ?PR?T0_TIMER?INTER_PROTUES_MAIN
+            CODE    00EFH     0018H     UNIT         ?CO?INTER_PROTUES_MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\output\inter2_protues (INTER_PROTUES_MAIN)
+
+
+SEGMENT                                    DATA_GROUP 
+  +--> CALLED SEGMENT                    START    LENGTH
+--------------------------------------------------------
+?C_C51STARTUP                            -----    -----
+  +--> ?PR?MAIN?INTER_PROTUES_MAIN
+
+?PR?MAIN?INTER_PROTUES_MAIN              -----    -----
+  +--> ?PR?_DISPLAY?INTER_PROTUES_MAIN
+
+?PR?_DISPLAY?INTER_PROTUES_MAIN          000DH    0001H
+  +--> ?CO?INTER_PROTUES_MAIN
+  +--> ?PR?_DELAY_ON?INTER_PROTUES_MAIN
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/28/2015  11:31:15  PAGE 2
+
+
+
+SYMBOL TABLE OF MODULE:  .\output\inter2_protues (INTER_PROTUES_MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        INTER_PROTUES_MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:0008H         PUBLIC        num1
+  D:00B0H         PUBLIC        P3
+  D:0009H         PUBLIC        num2
+  B:00A8H.7       PUBLIC        EA
+  C:00D4H         PUBLIC        T0_timer
+  C:0057H         PUBLIC        T1_timer
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:00EFH         PUBLIC        bit_select
+  C:00B2H         PUBLIC        main
+  C:00F7H         PUBLIC        seg_table
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:000AH         PUBLIC        shi
+  B:00A8H.1       PUBLIC        ET0
+  B:00B0H.0       PUBLIC        led_p3_0
+  B:00A8H.3       PUBLIC        ET1
+  D:000BH         PUBLIC        ge
+  B:00B0H.7       PUBLIC        seg_lock
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  C:008FH         PUBLIC        _delay_on
+  D:008AH         PUBLIC        TL0
+  D:000CH         PUBLIC        num
+  D:008BH         PUBLIC        TL1
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  C:001EH         PUBLIC        _display
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:00B2H         LINE#         20
+  C:00B2H         LINE#         21
+  C:00B2H         LINE#         22
+  C:00B5H         LINE#         23
+  C:00B8H         LINE#         24
+  C:00BBH         LINE#         25
+  C:00BEH         LINE#         26
+  C:00C1H         LINE#         27
+  C:00C3H         LINE#         28
+  C:00C5H         LINE#         29
+  C:00C7H         LINE#         30
+  C:00C9H         LINE#         31
+  C:00CBH         LINE#         32
+  C:00CBH         LINE#         33
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/28/2015  11:31:15  PAGE 3
+
+
+  C:00CBH         LINE#         34
+  C:00D2H         LINE#         35
+  -------         ENDPROC       MAIN
+  -------         PROC          _DISPLAY
+  D:0007H         SYMBOL        shi
+  D:000DH         SYMBOL        ge
+  C:001EH         LINE#         38
+  C:0020H         LINE#         39
+  C:0020H         LINE#         40
+  C:0022H         LINE#         41
+  C:0029H         LINE#         42
+  C:002BH         LINE#         43
+  C:002EH         LINE#         44
+  C:0034H         LINE#         45
+  C:003BH         LINE#         47
+  C:003DH         LINE#         48
+  C:0045H         LINE#         49
+  C:0047H         LINE#         50
+  C:004AH         LINE#         51
+  C:0050H         LINE#         52
+  -------         ENDPROC       _DISPLAY
+  -------         PROC          _DELAY_ON
+  D:0006H         SYMBOL        delay_time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:008FH         LINE#         55
+  C:008FH         LINE#         56
+  C:008FH         LINE#         59
+  C:0099H         LINE#         60
+  C:00B1H         LINE#         61
+  -------         ENDPROC       _DELAY_ON
+  -------         PROC          T0_TIMER
+  C:00D4H         LINE#         63
+  C:00D8H         LINE#         65
+  C:00DBH         LINE#         66
+  C:00DEH         LINE#         67
+  C:00E0H         LINE#         68
+  C:00E5H         LINE#         69
+  C:00E8H         LINE#         70
+  C:00EAH         LINE#         71
+  C:00EAH         LINE#         72
+  -------         ENDPROC       T0_TIMER
+  -------         PROC          T1_TIMER
+  C:0057H         LINE#         74
+  C:005DH         LINE#         76
+  C:0060H         LINE#         77
+  C:0063H         LINE#         78
+  C:0065H         LINE#         79
+  C:006AH         LINE#         80
+  C:006DH         LINE#         81
+  C:006FH         LINE#         82
+  C:0074H         LINE#         83
+  C:0077H         LINE#         84
+  C:0077H         LINE#         85
+  C:007FH         LINE#         86
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/28/2015  11:31:15  PAGE 4
+
+
+  C:0088H         LINE#         87
+  C:0088H         LINE#         88
+  -------         ENDPROC       T1_TIMER
+  -------         ENDMOD        INTER_PROTUES_MAIN
+
+Program Size: data=15.0 xdata=0 code=254
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

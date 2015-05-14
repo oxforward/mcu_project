@@ -1,0 +1,3 @@
+".\output\inter_protues_main.obj" 
+TO ".\output\inter2_protues" 
+PRINT(".\inter2_protues.m51") RAMSIZE(256) 

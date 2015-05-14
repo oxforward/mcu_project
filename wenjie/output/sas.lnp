@@ -1,0 +1,3 @@
+".\output\tye.obj" 
+TO ".\output\sas" 
+PRINT(".\sas.m51") RAMSIZE(256) 
