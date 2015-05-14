@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V4.13                                                        05/14/2015  12:03:49  PAGE 1
+BL51 BANKED LINKER/LOCATER V4.13                                                        05/14/2015  19:58:48  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V4.13, INVOKED BY:
@@ -19,7 +19,7 @@ LINK MAP OF MODULE:  .\output\next (EXAM)
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
-            CODE    0000H     0067H     ABSOLUTE     
+            CODE    0000H     0069H     ABSOLUTE     
 
 
 
@@ -29,23 +29,24 @@ SYMBOL TABLE OF MODULE:  .\output\next (EXAM)
   ----------------------------------
 
   -------         MODULE        EXAM
-  C:0049H         SYMBOL        DELAY
-  C:004BH         SYMBOL        DELAY1
-  C:004DH         SYMBOL        DELAY2
+  C:004DH         SYMBOL        DELAY
+  C:004FH         SYMBOL        DELAY1
+  C:0051H         SYMBOL        DELAY2
   B:00A8H.7       SYMBOL        EA
   B:00A8H.0       SYMBOL        EX0
   B:00A8H.2       SYMBOL        EX1
   C:0030H         SYMBOL        INIT
-  C:005AH         SYMBOL        INTERRU0
-  C:005EH         SYMBOL        INTERRU1
+  C:005BH         SYMBOL        INTERRU0
+  C:005FH         SYMBOL        INTERRU1
   B:0088H.0       SYMBOL        IT0
   B:0088H.2       SYMBOL        IT1
   C:0041H         SYMBOL        MAIN
-  C:0057H         SYMBOL        NEXTNUM
+  C:0058H         SYMBOL        NEXTNUM
   D:0080H         SYMBOL        P0
   D:00A0H         SYMBOL        P2
   C:003AH         SYMBOL        START
-  C:005FH         SYMBOL        TABLE
+  C:0060H         SYMBOL        TABLE
+  C:004BH         SYMBOL        TIMEMUL
   C:0000H         LINE#         2
   C:0003H         LINE#         4
   C:0013H         LINE#         6
@@ -58,29 +59,30 @@ SYMBOL TABLE OF MODULE:  .\output\next (EXAM)
   C:003CH         LINE#         16
   C:003EH         LINE#         17
   C:0041H         LINE#         18
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/14/2015  19:58:48  PAGE 2
+
+
   C:0042H         LINE#         19
-BL51 BANKED LINKER/LOCATER V4.13                                                      05/14/2015  12:03:49  PAGE 2
-
-
   C:0043H         LINE#         20
   C:0045H         LINE#         21
   C:0047H         LINE#         22
-  C:0049H         LINE#         24
+  C:0049H         LINE#         23
   C:004BH         LINE#         25
   C:004DH         LINE#         26
   C:004FH         LINE#         27
   C:0051H         LINE#         28
   C:0053H         LINE#         29
   C:0055H         LINE#         30
-  C:0057H         LINE#         32
+  C:0057H         LINE#         31
   C:0058H         LINE#         33
-  C:005AH         LINE#         35
-  C:005DH         LINE#         36
-  C:005EH         LINE#         38
+  C:0059H         LINE#         34
+  C:005BH         LINE#         36
+  C:005EH         LINE#         37
+  C:005FH         LINE#         39
   -------         ENDMOD        EXAM
 
 ******************************************************************************
-* RESTRICTED VERSION WITH FFFFH BYTE CODE SIZE LIMIT; USED: 0040H BYTE ( 0%) *
+* RESTRICTED VERSION WITH FFFFH BYTE CODE SIZE LIMIT; USED: 0041H BYTE ( 0%) *
 ******************************************************************************
 
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
