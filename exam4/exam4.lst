@@ -1,0 +1,72 @@
+C51 COMPILER V6.12  EXAM4                                                                  05/14/2015 20:49:21 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE EXAM4
+OBJECT MODULE PLACED IN .\output\exam4.obj
+COMPILER INVOKED BY: F:\keil_uv2\C51\BIN\C51.EXE .\user\exam4.c DEBUG OBJECTEXTEND PRINT(.\exam4.lst) OBJECT(.\output\ex
+                    -am4.obj) 
+
+stmt level    source
+
+   1          /******************************
+   2          *
+   3          *60S倒计时实验
+   4          *
+   5          ******************************/
+   6          #include<reg52.h>
+   7          #define uchar unsigned char
+   8          #define uint unsigned int
+   9          
+  10          sbit bit1 = P2^0;
+  11          sbit bit2 = P2^1;
+  12          
+  13          uchar code num[]={			//Common anode LED code table
+  14          0xc0, 0xf9, 0xa4, 0xb0,
+  15          0x99, 0x92, 0x82, 0xf8,
+  16          0x80, 0x90, 0x88, 0x83,
+  17          0xc6, 0xa1, 0x86, 0x8e};
+  18          
+  19          void delay_on(uint delay_time)		//Delay function
+  20          {
+  21   1      	int i;
+  22   1      	int j;
+  23   1      	for(i=0; i<=delay_time; i++)
+  24   1      		for(j=0; j<=delay_time; j++);
+  25   1      }
+  26          
+  27          void main()
+  28          {
+  29   1      	while(1){
+  30   2      		P1 = num[2];
+  31   2      		bit1 = 1;
+  32   2      		bit2 = 0;		
+  33   2      		delay_on(10);
+  34   2      		P1 = 0xff;
+  35   2      		delay_on(3);
+  36   2      		P1 = num[3];
+  37   2      		bit2 = 1;
+  38   2      		bit1 = 0;		
+  39   2      		delay_on(10);
+  40   2      		P1 = 0xff;
+  41   2      		delay_on(3);
+  42   2      	
+  43   2      	}
+  44   1      }
+  45          
+  46          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     77    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+C51 COMPILER V6.12  EXAM4                                                                  05/14/2015 20:49:21 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,169 @@
+BL51 BANKED LINKER/LOCATER V4.13                                                        05/14/2015  20:49:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.13, INVOKED BY:
+F:\KEIL_UV2\C51\BIN\BL51.EXE .\output\exam4.obj TO .\output\exam4 PRINT (.\exam4.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\output\exam4.obj (EXAM4)
+  F:\KEIL_UV2\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\output\exam4 (EXAM4)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     002BH     UNIT         ?PR?_DELAY_ON?EXAM4
+            CODE    002EH     0022H     UNIT         ?PR?MAIN?EXAM4
+            CODE    0050H     0010H     UNIT         ?CO?EXAM4
+            CODE    0060H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\output\exam4 (EXAM4)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?EXAM4
+
+?PR?MAIN?EXAM4
+  +--> ?CO?EXAM4
+  +--> ?PR?_DELAY_ON?EXAM4
+
+
+
+SYMBOL TABLE OF MODULE:  .\output\exam4 (EXAM4)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        EXAM4
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00B0H.4       PUBLIC        T0
+  B:00D0H.6       PUBLIC        AC
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/14/2015  20:49:21  PAGE 2
+
+
+  B:00B0H.5       PUBLIC        T1
+  B:0090H.0       PUBLIC        T2
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  B:00C8H.6       PUBLIC        EXF2
+  B:00B0H.7       PUBLIC        RD
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:00B0H.2       PUBLIC        INT0
+  B:00D0H.7       PUBLIC        CY
+  B:0098H.1       PUBLIC        TI
+  B:00B0H.3       PUBLIC        INT1
+  B:00B8H.4       PUBLIC        PS
+  B:0090H.1       PUBLIC        T2EX
+  B:00D0H.2       PUBLIC        OV
+  C:002EH         PUBLIC        main
+  B:00C8H.1       PUBLIC        C_T2
+  B:00B0H.6       PUBLIC        WR
+  B:00C8H.5       PUBLIC        RCLK
+  B:00C8H.4       PUBLIC        TCLK
+  C:000BH         PUBLIC        _delay_on
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0088H.1       PUBLIC        IE0
+  B:0088H.3       PUBLIC        IE1
+  B:00C8H.0       PUBLIC        CP_RL2
+  B:00A8H.1       PUBLIC        ET0
+  B:00A8H.3       PUBLIC        ET1
+  B:0088H.5       PUBLIC        TF0
+  B:00A8H.5       PUBLIC        ET2
+  B:0088H.7       PUBLIC        TF1
+  B:00C8H.7       PUBLIC        TF2
+  B:0098H.2       PUBLIC        RB8
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  B:0098H.3       PUBLIC        TB8
+  B:00A8H.2       PUBLIC        EX1
+  B:0088H.2       PUBLIC        IT1
+  B:00D0H.0       PUBLIC        P
+  B:0098H.7       PUBLIC        SM0
+  C:0050H         PUBLIC        num
+  B:0098H.6       PUBLIC        SM1
+  B:0098H.5       PUBLIC        SM2
+  B:00B8H.1       PUBLIC        PT0
+  B:00B8H.3       PUBLIC        PT1
+  B:00D0H.3       PUBLIC        RS0
+  B:00B8H.5       PUBLIC        PT2
+  B:0088H.4       PUBLIC        TR0
+  B:00D0H.4       PUBLIC        RS1
+  B:0088H.6       PUBLIC        TR1
+  B:00C8H.2       PUBLIC        TR2
+  B:00B8H.0       PUBLIC        PX0
+  B:00B8H.2       PUBLIC        PX1
+  B:00C8H.3       PUBLIC        EXEN2
+  B:0098H.4       PUBLIC        REN
+  D:00C8H         PUBLIC        T2CON
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/14/2015  20:49:21  PAGE 3
+
+
+  B:00B0H.0       PUBLIC        RXD
+  B:00B0H.1       PUBLIC        TXD
+  B:00A0H.0       PUBLIC        bit1
+  B:00A0H.1       PUBLIC        bit2
+  B:00D0H.5       PUBLIC        F0
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          L?0013
+  -------         ENDPROC       L?0013
+  -------         PROC          _DELAY_ON
+  D:0006H         SYMBOL        delay_time
+  -------         DO            delay_time
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         j
+  C:000BH         LINE#         19
+  C:000BH         LINE#         20
+  C:000BH         LINE#         23
+  C:0015H         LINE#         24
+  C:002DH         LINE#         25
+  -------         ENDPROC       _DELAY_ON
+  -------         PROC          MAIN
+  C:002EH         LINE#         27
+  C:002EH         LINE#         28
+  C:002EH         LINE#         29
+  C:002EH         LINE#         30
+  C:0035H         LINE#         31
+  C:0037H         LINE#         32
+  C:0039H         LINE#         33
+  C:003DH         LINE#         34
+  C:003DH         LINE#         35
+  C:0040H         LINE#         36
+  C:0045H         LINE#         37
+  C:0047H         LINE#         38
+  C:0049H         LINE#         39
+  C:004BH         LINE#         40
+  C:004BH         LINE#         41
+  C:004EH         LINE#         43
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        EXAM4
+
+******************************************************************************
+* RESTRICTED VERSION WITH FFFFH BYTE CODE SIZE LIMIT; USED: 0062H BYTE ( 0%) *
+******************************************************************************
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
