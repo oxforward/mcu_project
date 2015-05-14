@@ -1,4 +1,4 @@
-C51 COMPILER V6.12  EXAM4                                                                  05/14/2015 21:43:32 PAGE 1   
+C51 COMPILER V6.12  EXAM4                                                                  05/14/2015 21:45:37 PAGE 1   
 
 
 C51 COMPILER V6.12, COMPILATION OF MODULE EXAM4
@@ -11,7 +11,7 @@ stmt level    source
    1          /******************************
    2          *
    3          *60S倒计时实验
-   4          *
+   4          *时间与实际时间有点出入
    5          ******************************/
    6          #include<reg52.h>
    7          #define uchar unsigned char
@@ -62,7 +62,7 @@ stmt level    source
   52   2      		delay_on(3);
   53   2      		P1 = 0xff;
   54   2      		delay_on(3);	
-C51 COMPILER V6.12  EXAM4                                                                  05/14/2015 21:43:32 PAGE 2   
+C51 COMPILER V6.12  EXAM4                                                                  05/14/2015 21:45:37 PAGE 2   
 
   55   2      	}
   56   1      }
