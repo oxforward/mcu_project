@@ -1,5 +1,10 @@
 /************************************
-*matrixkeyboard
+*name:		MatrixKeyBoard
+*function:	4×4MatrixKeyBoardKeyboard encoding rules define themselves
+*			correspond to the number keys 0-9, A-F, 
+*			press the corresponding button to display 
+*			in the digital tube display the corresponding data.
+*
 ************************************/
 #include<reg52.h>
 #define uchar unsigned char
@@ -25,26 +30,21 @@ void main()
 	}
 }
 
-void display(uchar key)
-{
-//	P0 = 0xff;
-//	delay_on(3);
-	P0 = table[key];
-}
+
 
 void matrixKeyScan()
 {
 	uchar temp, key;
-	P2 = 0xfe;						//给第一行低电平
-	temp = P2;
-	temp &= 0xf0;					//
-	if(temp!=0xf0){					//判断高四位死否有0（列数）（是否有按键按下）
-		delay_on(3);				//消除抖动
+	P2 = 0xfe;					//a low level is given the first line
+	temp = P2;					//only read the high 4 bits status , so it's unnecessary to write 1
+	temp &= 0xf0;				
+	if(temp!=0xf0){				//Judge the high 4 bits if a hign level
+		delay_on(3);			//debouncing
 		temp = P2;
 		temp &= 0xf0;
-		if(temp!=0xf0){				//确定按键按下
-			temp = P2;				//有按键按下
-			switch(temp){			//确定按键具体是哪一个
+		if(temp!=0xf0){			//ensure a button is pressed
+			temp = P2;				
+			switch(temp){		//to ensure which button is pressed in detial
 				case 0xee:	
 					key = 0;
 					break;
@@ -58,24 +58,24 @@ void matrixKeyScan()
 					key = 3;
 					break;
 			}
-			while(temp!=0xf0){				//等待按键释放
+			while(temp!=0xf0){	//wait for the pressed button being released
 				temp = P2;
 				temp &= 0xf0;
 			}
-			display(key);		//显示按键多对应懂得值
+			display(key);		//Digital tube display the value  
 		}
 	}
 
-	P2 = 0xfd;						//给第二行低电平
+	P2 = 0xfd;					//a low level is given the second line
 	temp = P2;
-	temp &= 0xf0;					//
-	if(temp!=0xf0){					//判断高四位死否有0（列数）（是否有按键按下）
-		delay_on(3);				//消除抖动
+	temp &= 0xf0;				
+	if(temp!=0xf0){				
+		delay_on(3);			
 		temp = P2;
 		temp &= 0xf0;
-		if(temp!=0xf0){				//确定按键按下
-			temp = P2;				//有按键按下
-			switch(temp){			//确定按键具体是哪一个
+		if(temp!=0xf0){			
+			temp = P2;			
+			switch(temp){		
 				case 0xed:	
 					key = 4;
 					break;
@@ -89,24 +89,24 @@ void matrixKeyScan()
 					key = 7;
 					break;
 			}
-			while(temp!=0xf0){				//等待按键释放
+			while(temp!=0xf0){			
 				temp = P2;
 				temp &= 0xf0;
 			}
-			display(key);		//显示按键多对应懂得值
+			display(key);		
 		}
 	}
 
-	P2 = 0xfb;						//给第三行低电平
+	P2 = 0xfb;						//low level is given the third line
 	temp = P2;
-	temp &= 0xf0;					//
-	if(temp!=0xf0){					//判断高四位死否有0（列数）（是否有按键按下）
-		delay_on(3);				//消除抖动
+	temp &= 0xf0;				
+	if(temp!=0xf0){				
+		delay_on(3);			
 		temp = P2;
 		temp &= 0xf0;
-		if(temp!=0xf0){				//确定按键按下
-			temp = P2;				//有按键按下
-			switch(temp){			//确定按键具体是哪一个
+		if(temp!=0xf0){				
+			temp = P2;			
+			switch(temp){			
 				case 0xeb:	
 					key = 8;
 					break;
@@ -120,24 +120,24 @@ void matrixKeyScan()
 					key = 11;
 					break;
 			}
-			while(temp!=0xf0){				//等待按键释放
+			while(temp!=0xf0){				
 				temp = P2;
 				temp &= 0xf0;
 			}
-			display(key);		//显示按键多对应懂得值
+			display(key);		
 		}
 	}
 
-	P2 = 0xf7;						//给第四行低电平
+	P2 = 0xf7;						//low level is given the fourth line
 	temp = P2;
-	temp &= 0xf0;					//
-	if(temp!=0xf0){					//判断高四位死否有0（列数）（是否有按键按下）
-		delay_on(3);				//消除抖动
+	temp &= 0xf0;					
+	if(temp!=0xf0){					
+		delay_on(3);				
 		temp = P2;
 		temp &= 0xf0;
-		if(temp!=0xf0){				//确定按键按下
-			temp = P2;				//有按键按下
-			switch(temp){			//确定按键具体是哪一个
+		if(temp!=0xf0){				
+			temp = P2;				
+			switch(temp){			
 				case 0xe7:	
 					key = 12;
 					break;
@@ -151,14 +151,16 @@ void matrixKeyScan()
 					key = 15;
 					break;
 			}
-			while(temp!=0xf0){				//等待按键释放
+			while(temp!=0xf0){				
 				temp = P2;
 				temp &= 0xf0;
 			}
-			display(key);		//显示按键多对应懂得值
+			display(key);		
 		}
 	}
 }
+
+
 
 void delay_on(uint delay_time)
 {
@@ -167,3 +169,12 @@ void delay_on(uint delay_time)
 	for(i=0;i<=delay_time;i++)
 		for(j=0;j<=delay_time;j++);
 }
+
+
+
+void display(uchar key)
+{
+	P0 = table[key];
+}
+
+

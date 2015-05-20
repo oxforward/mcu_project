@@ -1,0 +1,6 @@
+".\output\74hc595.obj",
+".\output\boardinit.obj",
+".\output\delay.obj",
+".\output\lcd1602.obj" 
+TO ".\output\lcd1602" 
+PRINT(".\lcd1602.m51") RAMSIZE(256) 

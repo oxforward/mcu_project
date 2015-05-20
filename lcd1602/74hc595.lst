@@ -1,0 +1,61 @@
+C51 COMPILER V6.12  74HC595                                                                05/16/2015 21:28:44 PAGE 1   
+
+
+C51 COMPILER V6.12, COMPILATION OF MODULE 74HC595
+OBJECT MODULE PLACED IN .\output\74hc595.obj
+COMPILER INVOKED BY: F:\keil_uv2\C51\BIN\C51.EXE .\user\74hc595.c DEBUG OBJECTEXTEND PRINT(.\74hc595.lst) OBJECT(.\outpu
+                    -t\74hc595.obj) 
+
+stmt level    source
+
+   1          /*
+   2          * ÎÄ ¼þ Ãû£º74hc595.c
+   3          * Ð¾    Æ¬£º74hc595
+   4          * ¾§    Õñ£º11.0592MHz
+   5          * ´´ ½¨ Õß£ºXK
+   6          * ´´½¨ÈÕÆÚ£º2011.8.6
+   7          * ÐÞ ¸Ä Õß£º
+   8          * ÐÞ¸ÄÈÕÆÚ£º
+   9          * ¹¦ÄÜÃèÊö£º¸ø74hc595Ð¾Æ¬Ð´Ò»×Ö½ÚÊý¾Ý
+  10            Ð¾Æ¬Ê¹ÓÃËµÃ÷£ºSI ÊÇ´®ÐÐÊý¾ÝÊäÈë¿Ú£¬µ±SRCKÀ´Ò»¸öÉÏÉýÑØÊ±£¬Ð´Èë´Ë¿ÌSIÉÏµÄÊý¾Ý£¬µ½ÒÆÎ»¼Ä´æÆ÷£¬Í¬Ê±×óÒÆÒ»Î»¡
+             -£
+  11                          µ±°ËÎ»Êý¾Ý·¢ËÍÍêÊ±£¬¸øRCKÒ»¸öÉÏÉýÑØ£¬ÒÆÎ»¼Ä´æÆ÷µÄ°ËÎ»Êý¾ÝÊä³öµ½QA-Q7
+  12            Ð¾Æ¬±È½Ï£»74hc164ºÍ74hc595¹¦ÄÜ£¬»ù±¾ÏàÍ¬¡£Æä¸ù±¾µÄÇø±ðÔÚRCKÉÏ£¬Ö»ÓÐµ±RCKÀ´ÉÏÉýÑØÊä³öQA-Q7£¬²Å»á¸üÐÂ¡£
+  13                      Æä´Î£¬595µÄÇý¶¯ÄÜÁ¦¸üÇ¿¡£
+  14           */
+  15          #include <reg52.h>
+  16          #include "74hc595.h"
+  17          #include "delay.h"
+  18          
+  19          sbit data_595si   =P1^0;  //595Êý¾ÝÊäÈë¿Ú
+  20          sbit clk_595srck  =P1^4;  //595Êý¾ÝÐ´½øÒÆÎ»¼Ä´æÆ÷Ê±ÖÓÊäÈë¿Ú
+  21          sbit e_595rck     =P2^3;  //595ÒÆÎ»¼Ä´æÆ÷£¬Êý¾ÝËÍÊä³öµÄÊ±ÖÓ
+  22          
+  23          void write_byte_74hc595(uchar dat)			  	//74hc164Ð¾Æ¬Ð´Ò»×Ö½ÚÊý¾Ýº¯Êý
+  24          {						  
+  25   1      	 uchar i;			   
+  26   1      	 e_595rck=0;	  //¸ø595RCKµÍµçÆ½	
+  27   1      	 for(i=0;i<8;i++)	
+  28   1      	 {	           	   			  
+  29   2      	     clk_595srck=0;	  //¸ø595SRCKµÍµçÆ½				
+  30   2               data_595si=(dat<<i)&0x80;	   //°ÑÎÒÃÇÒªÊ¹ÓÃµÄÊý¾Ý½øÐÐ×óÒÆ´¦Àí£¬±£Ö¤×îÖÕÊä³öµÄÊý¾ÝÓë ÎÒÃÇ uchar da
+             -t ¶ÔÓ¦
+  31   2               clk_595srck=1;	 //¸ø595SRCK¸ßµçÆ½		
+  32   2      	 }
+  33   1      	  e_595rck=1;  //¸ø595SRCK¸ßµçÆ½£¬¼È°Ñ DATÊý¾ÝÊý¾ÝËÍµ½Êä³ö	
+  34   1            data_595si=1;//Òò¸ÃÊý¾Ý¿ÚºÍ±ðµÄµçÂ·¹²ÓÃ£¬Òò´Ëµ±74hc595Ê¹ÓÃÍêºó£¬ÖÃ¡°1¡±½â³ý³åÍ»
+  35   1      }  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     30    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

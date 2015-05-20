@@ -1,4 +1,4 @@
-C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:18:40 PAGE 1   
+C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:54:25 PAGE 1   
 
 
 C51 COMPILER V6.12, COMPILATION OF MODULE EXAM5
@@ -9,52 +9,52 @@ COMPILER INVOKED BY: F:\keil_uv2\C51\BIN\C51.EXE .\user\exam5.c DEBUG OBJECTEXTE
 stmt level    source
 
    1          /************************************
-   2          *matrixkeyboard
-   3          ************************************/
-   4          #include<reg52.h>
-   5          #define uchar unsigned char
-   6          #define uint unsigned int
-   7          
-   8          uchar code table[]={			//Common anode LED code table
-   9          0xc0, 0xf9, 0xa4, 0xb0,
-  10          0x99, 0x92, 0x82, 0xf8,
-  11          0x80, 0x90, 0x88, 0x83,
-  12          0xc6, 0xa1, 0x86, 0x8e};
-  13          
-  14          sbit sw = P3^7;
-  15          
-  16          void matrixKeyScan();
-  17          void display(uchar key);
-  18          void delay_on(uint delay_time);
-  19          
-  20          void main()
-  21          {
-  22   1      	sw = 1;
-  23   1      	while(1){
-  24   2      		matrixKeyScan();
-  25   2      	}
-  26   1      }
-  27          
-  28          void display(uchar key)
-  29          {
-  30   1      //	P0 = 0xff;
-  31   1      //	delay_on(3);
-  32   1      	P0 = table[key];
-  33   1      }
+   2          *name:		MatrixKeyBoard
+   3          *function:	4×4MatrixKeyBoardKeyboard encoding rules define themselves
+   4          *			correspond to the number keys 0-9, A-F, 
+   5          *			press the corresponding button to display 
+   6          *			in the digital tube display the corresponding data.
+   7          *
+   8          ************************************/
+   9          #include<reg52.h>
+  10          #define uchar unsigned char
+  11          #define uint unsigned int
+  12          
+  13          uchar code table[]={			//Common anode LED code table
+  14          0xc0, 0xf9, 0xa4, 0xb0,
+  15          0x99, 0x92, 0x82, 0xf8,
+  16          0x80, 0x90, 0x88, 0x83,
+  17          0xc6, 0xa1, 0x86, 0x8e};
+  18          
+  19          sbit sw = P3^7;
+  20          
+  21          void matrixKeyScan();
+  22          void display(uchar key);
+  23          void delay_on(uint delay_time);
+  24          
+  25          void main()
+  26          {
+  27   1      	sw = 1;
+  28   1      	while(1){
+  29   2      		matrixKeyScan();
+  30   2      	}
+  31   1      }
+  32          
+  33          
   34          
   35          void matrixKeyScan()
   36          {
   37   1      	uchar temp, key;
-  38   1      	P2 = 0xfe;						//给第一行低电平
+  38   1      	P2 = 0xfe;					//a low level is given the first line
   39   1      	temp = P2;
-  40   1      	temp &= 0xf0;					//
-  41   1      	if(temp!=0xf0){					//判断高四位死否有0（列数）（是否有按键按下）
-  42   2      		delay_on(3);				//消除抖动
+  40   1      	temp &= 0xf0;				
+  41   1      	if(temp!=0xf0){				//Judge the high 4 bits if a hign level
+  42   2      		delay_on(3);			//debouncing
   43   2      		temp = P2;
   44   2      		temp &= 0xf0;
-  45   2      		if(temp!=0xf0){				//确定按键按下
-  46   3      			temp = P2;				//有按键按下
-  47   3      			switch(temp){			//确定按键具体是哪一个
+  45   2      		if(temp!=0xf0){			//ensure a button is pressed
+  46   3      			temp = P2;				
+  47   3      			switch(temp){		//to ensure which button is pressed in detial
   48   4      				case 0xee:	
   49   4      					key = 0;
   50   4      					break;
@@ -62,7 +62,7 @@ stmt level    source
   52   4      					key = 1;
   53   4      					break;
   54   4      				case 0xbe:
-C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:18:40 PAGE 2   
+C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:54:25 PAGE 2   
 
   55   4      					key = 2;
   56   4      					break;
@@ -70,24 +70,24 @@ stmt level    source
   58   4      					key = 3;
   59   4      					break;
   60   4      			}
-  61   3      			while(temp!=0xf0){				//等待按键释放
+  61   3      			while(temp!=0xf0){	//wait for the pressed button being released
   62   4      				temp = P2;
   63   4      				temp &= 0xf0;
   64   4      			}
-  65   3      			display(key);		//显示按键多对应懂得值
+  65   3      			display(key);		//Digital tube display the value  
   66   3      		}
   67   2      	}
   68   1      
-  69   1      	P2 = 0xfd;						//给第二行低电平
+  69   1      	P2 = 0xfd;					//a low level is given the second line
   70   1      	temp = P2;
-  71   1      	temp &= 0xf0;					//
-  72   1      	if(temp!=0xf0){					//判断高四位死否有0（列数）（是否有按键按下）
-  73   2      		delay_on(3);				//消除抖动
+  71   1      	temp &= 0xf0;				
+  72   1      	if(temp!=0xf0){				
+  73   2      		delay_on(3);			
   74   2      		temp = P2;
   75   2      		temp &= 0xf0;
-  76   2      		if(temp!=0xf0){				//确定按键按下
-  77   3      			temp = P2;				//有按键按下
-  78   3      			switch(temp){			//确定按键具体是哪一个
+  76   2      		if(temp!=0xf0){			
+  77   3      			temp = P2;			
+  78   3      			switch(temp){		
   79   4      				case 0xed:	
   80   4      					key = 4;
   81   4      					break;
@@ -101,24 +101,24 @@ stmt level    source
   89   4      					key = 7;
   90   4      					break;
   91   4      			}
-  92   3      			while(temp!=0xf0){				//等待按键释放
+  92   3      			while(temp!=0xf0){			
   93   4      				temp = P2;
   94   4      				temp &= 0xf0;
   95   4      			}
-  96   3      			display(key);		//显示按键多对应懂得值
+  96   3      			display(key);		
   97   3      		}
   98   2      	}
   99   1      
- 100   1      	P2 = 0xfb;						//给第三行低电平
+ 100   1      	P2 = 0xfb;						//low level is given the third line
  101   1      	temp = P2;
- 102   1      	temp &= 0xf0;					//
- 103   1      	if(temp!=0xf0){					//判断高四位死否有0（列数）（是否有按键按下）
- 104   2      		delay_on(3);				//消除抖动
+ 102   1      	temp &= 0xf0;				
+ 103   1      	if(temp!=0xf0){				
+ 104   2      		delay_on(3);			
  105   2      		temp = P2;
  106   2      		temp &= 0xf0;
- 107   2      		if(temp!=0xf0){				//确定按键按下
- 108   3      			temp = P2;				//有按键按下
- 109   3      			switch(temp){			//确定按键具体是哪一个
+ 107   2      		if(temp!=0xf0){				
+ 108   3      			temp = P2;			
+ 109   3      			switch(temp){			
  110   4      				case 0xeb:	
  111   4      					key = 8;
  112   4      					break;
@@ -126,7 +126,7 @@ stmt level    source
  114   4      					key = 9;
  115   4      					break;
  116   4      				case 0xbb:
-C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:18:40 PAGE 3   
+C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:54:25 PAGE 3   
 
  117   4      					key = 10;
  118   4      					break;
@@ -134,24 +134,24 @@ stmt level    source
  120   4      					key = 11;
  121   4      					break;
  122   4      			}
- 123   3      			while(temp!=0xf0){				//等待按键释放
+ 123   3      			while(temp!=0xf0){				
  124   4      				temp = P2;
  125   4      				temp &= 0xf0;
  126   4      			}
- 127   3      			display(key);		//显示按键多对应懂得值
+ 127   3      			display(key);		
  128   3      		}
  129   2      	}
  130   1      
- 131   1      	P2 = 0xf7;						//给第四行低电平
+ 131   1      	P2 = 0xf7;						//low level is given the fourth line
  132   1      	temp = P2;
- 133   1      	temp &= 0xf0;					//
- 134   1      	if(temp!=0xf0){					//判断高四位死否有0（列数）（是否有按键按下）
- 135   2      		delay_on(3);				//消除抖动
+ 133   1      	temp &= 0xf0;					
+ 134   1      	if(temp!=0xf0){					
+ 135   2      		delay_on(3);				
  136   2      		temp = P2;
  137   2      		temp &= 0xf0;
- 138   2      		if(temp!=0xf0){				//确定按键按下
- 139   3      			temp = P2;				//有按键按下
- 140   3      			switch(temp){			//确定按键具体是哪一个
+ 138   2      		if(temp!=0xf0){				
+ 139   3      			temp = P2;				
+ 140   3      			switch(temp){			
  141   4      				case 0xe7:	
  142   4      					key = 12;
  143   4      					break;
@@ -165,22 +165,35 @@ stmt level    source
  151   4      					key = 15;
  152   4      					break;
  153   4      			}
- 154   3      			while(temp!=0xf0){				//等待按键释放
+ 154   3      			while(temp!=0xf0){				
  155   4      				temp = P2;
  156   4      				temp &= 0xf0;
  157   4      			}
- 158   3      			display(key);		//显示按键多对应懂得值
+ 158   3      			display(key);		
  159   3      		}
  160   2      	}
  161   1      }
  162          
- 163          void delay_on(uint delay_time)
- 164          {
- 165   1      	uint i;
- 166   1      	uint j;
- 167   1      	for(i=0;i<=delay_time;i++)
- 168   1      		for(j=0;j<=delay_time;j++);
- 169   1      }
+ 163          
+ 164          
+ 165          void delay_on(uint delay_time)
+ 166          {
+ 167   1      	uint i;
+ 168   1      	uint j;
+ 169   1      	for(i=0;i<=delay_time;i++)
+ 170   1      		for(j=0;j<=delay_time;j++);
+ 171   1      }
+ 172          
+ 173          
+ 174          
+ 175          void display(uchar key)
+ 176          {
+ 177   1      	P0 = table[key];
+ 178   1      }
+C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:54:25 PAGE 4   
+
+ 179          
+ 180          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
@@ -190,8 +203,6 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----       2
    IDATA SIZE       =   ----    ----
-C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:18:40 PAGE 4   
-
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
