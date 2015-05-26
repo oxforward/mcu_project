@@ -1,0 +1,3 @@
+".\output\adc.obj" 
+TO ".\output\adc" 
+PRINT(".\adc.m51") RAMSIZE(256) 

@@ -1,0 +1,6 @@
+Build target 'Target 1'
+assembling exam.asm...
+.\user\exam.asm(37): error A22: EXPRESSION TYPE DOES NOT MATCH INSTRUCTION
+.\user\exam.asm(38): error A22: EXPRESSION TYPE DOES NOT MATCH INSTRUCTION
+.\user\exam.asm(39): error A22: EXPRESSION TYPE DOES NOT MATCH INSTRUCTION
+Target not created

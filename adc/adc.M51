@@ -1,8 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        04/29/2015  20:07:27  PAGE 1
+BL51 BANKED LINKER/LOCATER V4.13                                                        05/23/2015  13:01:10  PAGE 1
 
 
-BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-F:\KEIL_FOR_51\C51\BIN\BL51.EXE adc.obj, delay_on.obj TO adc RAMSIZE (256)
+BL51 BANKED LINKER/LOCATER V4.13, INVOKED BY:
+F:\KEIL_UV2\C51\BIN\BL51.EXE adc.obj, delay_on.obj TO adc RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
@@ -11,6 +11,7 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   adc.obj (ADC)
   delay_on.obj (DELAY_ON)
+  F:\KEIL_UV2\C51\LIB\C51S.LIB (?C_STARTUP)
 
 
 LINK MAP OF MODULE:  adc (ADC)
@@ -21,9 +22,15 @@ LINK MAP OF MODULE:  adc (ADC)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
-            CODE    0000H     0023H     UNIT         ?PR?_DELAY_ON?DELAY_ON
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0027H     UNIT         ?PR?DELAY?ADC
+            CODE    002AH     0023H     UNIT         ?PR?_DELAY_ON?DELAY_ON
+            CODE    004DH     0014H     UNIT         ?PR?CHOSE_CHANNEL?ADC
+            CODE    0061H     000CH     UNIT         ?C_C51STARTUP
+            CODE    006DH     000AH     UNIT         ?PR?MAIN?ADC
 
 
 
@@ -33,6 +40,15 @@ OVERLAY MAP OF MODULE:   adc (ADC)
 SEGMENT
   +--> CALLED SEGMENT
 ---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?ADC
+
+?PR?MAIN?ADC
+  +--> ?PR?CHOSE_CHANNEL?ADC
+
+?PR?CHOSE_CHANNEL?ADC
+  +--> ?PR?DELAY?ADC
+
 
 
 SYMBOL TABLE OF MODULE:  adc (ADC)
@@ -42,48 +58,206 @@ SYMBOL TABLE OF MODULE:  adc (ADC)
 
   -------         MODULE        ADC
   C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/23/2015  13:01:10  PAGE 2
+
+
   D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
+  B:00B0H.4       PUBLIC        T0
+  B:00D0H.6       PUBLIC        AC
+  B:00B0H.5       PUBLIC        T1
+  B:0090H.0       PUBLIC        T2
+  B:00A8H.7       PUBLIC        EA
   D:00A8H         PUBLIC        IE
+  C:0003H         PUBLIC        delay
+  B:00C8H.6       PUBLIC        EXF2
+  B:00B0H.7       PUBLIC        RD
+  B:00A8H.4       PUBLIC        ES
   D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:00B0H.2       PUBLIC        INT0
+  B:00D0H.7       PUBLIC        CY
+  B:0098H.1       PUBLIC        TI
+  B:00B0H.3       PUBLIC        INT1
+  B:00B8H.4       PUBLIC        PS
+  B:0090H.1       PUBLIC        T2EX
+  B:00D0H.2       PUBLIC        OV
+  C:006DH         PUBLIC        main
+  B:00C8H.1       PUBLIC        C_T2
+  B:00B0H.6       PUBLIC        WR
+  B:00C8H.5       PUBLIC        RCLK
+  B:00C8H.4       PUBLIC        TCLK
+  B:00B0H.0       PUBLIC        start
+  B:00B0H.2       PUBLIC        ale
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
+  B:0088H.1       PUBLIC        IE0
+  B:0088H.3       PUBLIC        IE1
+  B:00C8H.0       PUBLIC        CP_RL2
+  B:00A8H.1       PUBLIC        ET0
+  B:00A8H.3       PUBLIC        ET1
+  B:0088H.5       PUBLIC        TF0
+  B:00A8H.5       PUBLIC        ET2
+  B:0088H.7       PUBLIC        TF1
+  B:00C8H.7       PUBLIC        TF2
+  B:0098H.2       PUBLIC        RB8
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  B:0098H.3       PUBLIC        TB8
+  B:00A8H.2       PUBLIC        EX1
+  B:0088H.2       PUBLIC        IT1
+  B:00D0H.0       PUBLIC        P
+  B:0098H.7       PUBLIC        SM0
+  B:0098H.6       PUBLIC        SM1
+  B:0098H.5       PUBLIC        SM2
+  C:004DH         PUBLIC        chose_channel
+  B:00B8H.1       PUBLIC        PT0
+  B:00B8H.3       PUBLIC        PT1
+  B:00D0H.3       PUBLIC        RS0
+  B:00B8H.5       PUBLIC        PT2
+  B:0088H.4       PUBLIC        TR0
+  B:00D0H.4       PUBLIC        RS1
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/23/2015  13:01:10  PAGE 3
+
+
+  B:0088H.6       PUBLIC        TR1
+  B:00C8H.2       PUBLIC        TR2
+  B:00B8H.0       PUBLIC        PX0
+  B:00B8H.2       PUBLIC        PX1
+  B:00C8H.3       PUBLIC        EXEN2
+  B:0098H.4       PUBLIC        REN
   D:00C8H         PUBLIC        T2CON
+  B:00B0H.1       PUBLIC        eoc_oe
+  B:00B0H.0       PUBLIC        RXD
+  B:00B0H.1       PUBLIC        TXD
+  B:00D0H.5       PUBLIC        F0
   D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:006DH         LINE#         9
+  C:006DH         LINE#         10
+  C:006DH         LINE#         11
+  C:0070H         LINE#         12
+  C:0073H         LINE#         13
+  C:0076H         LINE#         14
+  C:0076H         LINE#         15
+  -------         ENDPROC       MAIN
+  -------         PROC          DELAY
+  -------         DO            DELAY
+  D:0006H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         j
+  C:0003H         LINE#         18
+  C:0003H         LINE#         19
+  C:0003H         LINE#         21
+  C:000FH         LINE#         22
+  C:0029H         LINE#         23
+  -------         ENDPROC       DELAY
+  -------         PROC          CHOSE_CHANNEL
+  C:004DH         LINE#         25
+  C:004DH         LINE#         26
+  C:004DH         LINE#         28
+  C:004FH         LINE#         29
+  C:0052H         LINE#         30
+  C:0055H         LINE#         31
+  C:0057H         LINE#         32
+  C:0059H         LINE#         33
+  C:005CH         LINE#         34
+  C:005EH         LINE#         35
+  -------         ENDPROC       CHOSE_CHANNEL
   -------         ENDMOD        ADC
 
   -------         MODULE        DELAY_ON
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0090H         PUBLIC        P1
   D:00B0H         PUBLIC        P3
+  B:00B0H.4       PUBLIC        T0
+  B:00D0H.6       PUBLIC        AC
+  B:00B0H.5       PUBLIC        T1
+  B:0090H.0       PUBLIC        T2
+  B:00A8H.7       PUBLIC        EA
   D:00A8H         PUBLIC        IE
+  B:00C8H.6       PUBLIC        EXF2
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/23/2015  13:01:10  PAGE 4
+
+
+  B:00B0H.7       PUBLIC        RD
+  B:00A8H.4       PUBLIC        ES
   D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:00B0H.2       PUBLIC        INT0
+  B:00D0H.7       PUBLIC        CY
+  B:0098H.1       PUBLIC        TI
+  B:00B0H.3       PUBLIC        INT1
+  B:00B8H.4       PUBLIC        PS
+  B:0090H.1       PUBLIC        T2EX
+  B:00D0H.2       PUBLIC        OV
+  B:00C8H.1       PUBLIC        C_T2
+  B:00B0H.6       PUBLIC        WR
+  B:00C8H.5       PUBLIC        RCLK
+  B:00C8H.4       PUBLIC        TCLK
+  C:002AH         PUBLIC        _delay_on
   D:0098H         PUBLIC        SCON
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/29/2015  20:07:27  PAGE 2
-
-
   D:0088H         PUBLIC        TCON
-  C:0000H         PUBLIC        _delay_on
+  B:0088H.1       PUBLIC        IE0
+  B:0088H.3       PUBLIC        IE1
+  B:00C8H.0       PUBLIC        CP_RL2
+  B:00A8H.1       PUBLIC        ET0
+  B:00A8H.3       PUBLIC        ET1
+  B:0088H.5       PUBLIC        TF0
+  B:00A8H.5       PUBLIC        ET2
+  B:0088H.7       PUBLIC        TF1
+  B:00C8H.7       PUBLIC        TF2
+  B:0098H.2       PUBLIC        RB8
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  B:0098H.3       PUBLIC        TB8
+  B:00A8H.2       PUBLIC        EX1
+  B:0088H.2       PUBLIC        IT1
+  B:00D0H.0       PUBLIC        P
+  B:0098H.7       PUBLIC        SM0
+  B:0098H.6       PUBLIC        SM1
+  B:0098H.5       PUBLIC        SM2
+  B:00B8H.1       PUBLIC        PT0
+  B:00B8H.3       PUBLIC        PT1
+  B:00D0H.3       PUBLIC        RS0
+  B:00B8H.5       PUBLIC        PT2
+  B:0088H.4       PUBLIC        TR0
+  B:00D0H.4       PUBLIC        RS1
+  B:0088H.6       PUBLIC        TR1
+  B:00C8H.2       PUBLIC        TR2
+  B:00B8H.0       PUBLIC        PX0
+  B:00B8H.2       PUBLIC        PX1
+  B:00C8H.3       PUBLIC        EXEN2
+  B:0098H.4       PUBLIC        REN
   D:00C8H         PUBLIC        T2CON
+  B:00B0H.0       PUBLIC        RXD
+  B:00B0H.1       PUBLIC        TXD
+  B:00D0H.5       PUBLIC        F0
   D:00D0H         PUBLIC        PSW
   -------         PROC          _DELAY_ON
   D:0006H         SYMBOL        delay_time
-  -------         DO            
+  -------         DO            delay_time
+BL51 BANKED LINKER/LOCATER V4.13                                                      05/23/2015  13:01:10  PAGE 5
+
+
   D:0004H         SYMBOL        i
   D:0002H         SYMBOL        j
-  -------         ENDDO         
-  C:0000H         LINE#         4
-  C:0000H         LINE#         5
-  C:0000H         LINE#         8
-  C:000AH         LINE#         9
-  C:0022H         LINE#         10
+  -------         ENDDO         j
+  C:002AH         LINE#         4
+  C:002AH         LINE#         5
+  C:002AH         LINE#         8
+  C:0034H         LINE#         9
+  C:004CH         LINE#         10
   -------         ENDPROC       _DELAY_ON
   -------         ENDMOD        DELAY_ON
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DELAY_ON?DELAY_ON
 
-*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
+******************************************************************************
+* RESTRICTED VERSION WITH FFFFH BYTE CODE SIZE LIMIT; USED: 006EH BYTE ( 0%) *
+******************************************************************************
 
-Program Size: data=8.0 xdata=0 code=35
-LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

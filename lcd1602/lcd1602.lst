@@ -1,4 +1,4 @@
-C51 COMPILER V6.12  LCD1602                                                                05/16/2015 21:28:45 PAGE 1   
+C51 COMPILER V6.12  LCD1602                                                                05/21/2015 22:25:37 PAGE 1   
 
 
 C51 COMPILER V6.12, COMPILATION OF MODULE LCD1602
@@ -62,7 +62,7 @@ stmt level    source
   52   1      	delay();
   53   1      	E = 1;
   54   1      	delay();
-C51 COMPILER V6.12  LCD1602                                                                05/16/2015 21:28:45 PAGE 2   
+C51 COMPILER V6.12  LCD1602                                                                05/21/2015 22:25:37 PAGE 2   
 
   55   1      }
   56          

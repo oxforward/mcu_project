@@ -1,4 +1,4 @@
-C51 COMPILER V6.12  EXAM4                                                                  05/14/2015 21:45:37 PAGE 1   
+C51 COMPILER V6.12  EXAM4                                                                  05/26/2015 20:57:09 PAGE 1   
 
 
 C51 COMPILER V6.12, COMPILATION OF MODULE EXAM4
@@ -9,85 +9,99 @@ COMPILER INVOKED BY: F:\keil_uv2\C51\BIN\C51.EXE .\user\exam4.c DEBUG OBJECTEXTE
 stmt level    source
 
    1          /******************************
-   2          *
-   3          *60S倒计时实验
-   4          *时间与实际时间有点出入
-   5          ******************************/
-   6          #include<reg52.h>
-   7          #define uchar unsigned char
-   8          #define uint unsigned int
-   9          
-  10          sbit bit1 = P2^0;
-  11          sbit bit2 = P2^1;
-  12          int countTime = 59;
-  13          int ten = 5,unit = 9, count = 0;
-  14          
-  15          uchar code num[]={			//Common anode LED code table
-  16          0xc0, 0xf9, 0xa4, 0xb0,
-  17          0x99, 0x92, 0x82, 0xf8,
-  18          0x80, 0x90, 0x88, 0x83,
-  19          0xc6, 0xa1, 0x86, 0x8e};
+   2          *exam_name:	display 59s time on the digital tube through the P1 port
+   3          ******************************/
+   4          #include<reg52.h>
+   5          #define uint unsigned int
+   6          #define uchar unsigned char
+   7          sbit bit1 = P2^0;
+   8          sbit bit2 = P2^1;
+   9          int countTime = 59;
+  10          int ten = 5,unit = 9, count = 0;
+  11          
+  12          uchar code num[] = {			//Common anode LED code table
+  13          0xc0, 0xf9, 0xa4, 0xb0,
+  14          0x99, 0x92, 0x82, 0xf8,
+  15          0x80, 0x90, 0x88, 0x83,
+  16          0xc6, 0xa1, 0x86, 0x8e};
+  17          
+  18          void init();
+  19          void delay_on(uint delay_time);
   20          
-  21          void delay_on(uint delay_time)		//Delay function
-  22          {
-  23   1      	int i;
-  24   1      	int j;
-  25   1      	for(i=0; i<=delay_time; i++)
-  26   1      		for(j=0; j<=delay_time; j++);
-  27   1      }
-  28          
-  29          void init()
-  30          {
-  31   1      	TH0 = (65536 - 50000) / 256;
-  32   1      	TL0 = (65536 - 50000) % 256;
-  33   1      	TMOD = 0x01;
-  34   1      	ET0 = 1;
-  35   1      	EA = 1;
-  36   1      }
-  37          
-  38          void main()
-  39          {
-  40   1      	init();
-  41   1      	TR0 = 1;
-  42   1      	while(1){
-  43   2      		P1 = num[ten];
-  44   2      		bit1 = 1;
-  45   2      		bit2 = 0;		
-  46   2      		delay_on(3);
-  47   2      		P1 = 0xff;		//消影
-  48   2      		delay_on(3);
-  49   2      		P1 = num[unit];
-  50   2      		bit2 = 1;
-  51   2      		bit1 = 0;		
-  52   2      		delay_on(3);
-  53   2      		P1 = 0xff;
-  54   2      		delay_on(3);	
-C51 COMPILER V6.12  EXAM4                                                                  05/14/2015 21:45:37 PAGE 2   
+  21          /****************************************
+  22          *function:	display the 59s time on the digital tube through the P1 port
+  23          *parameter:	none
+  24          *return:	none
+  25          ****************************************/
+  26          void main()
+  27          {
+  28   1      	init();
+  29   1      	TR0 = 1;
+  30   1      	while(1){
+  31   2      		P1 = num[ten];
+  32   2      		bit1 = 1;
+  33   2      		bit2 = 0;		
+  34   2      		delay_on(3);
+  35   2      		P1 = 0xff;		//消影
+  36   2      		delay_on(3);
+  37   2      		P1 = num[unit];
+  38   2      		bit2 = 1;
+  39   2      		bit1 = 0;		
+  40   2      		delay_on(3);
+  41   2      		P1 = 0xff;
+  42   2      		delay_on(3);	
+  43   2      	}
+  44   1      }
+  45          
+  46          /**********************************
+  47          *function:	initilize the Timer 0
+  48          *Parameter:	none
+  49          *return:	none
+  50          **********************************/
+  51          void init()
+  52          {
+  53   1      	TH0 = (65536 - 50000) / 256;			//Initial value
+  54   1      	TL0 = (65536 - 50000) % 256;
+C51 COMPILER V6.12  EXAM4                                                                  05/26/2015 20:57:09 PAGE 2   
 
-  55   2      	}
-  56   1      }
-  57          
-  58          void timer_0() interrupt 1
-  59          {
-  60   1      	TH0 = (65536 - 50000) / 256;
-  61   1      	TL0 = (65536 - 50000) % 256;
-  62   1      	count++;
-  63   1      	if(count==20){
-  64   2      		count = 0;
-  65   2      		countTime--;
-  66   2      		if(countTime == -1){
-  67   3      			countTime = 59;			
-  68   3      		}
-  69   2      		ten = countTime / 10;
-  70   2      		unit = countTime % 10;
-  71   2      	}	
-  72   1      }
-  73          
-  74          
+  55   1      	TMOD = 0x01;
+  56   1      	ET0 = 1;
+  57   1      	EA = 1;
+  58   1      }
+  59          
+  60          void delay_on(uint delay_time)		//Delay function
+  61          {
+  62   1      	int i;
+  63   1      	int j;
+  64   1      	for(i=0; i<=delay_time; i++)
+  65   1      		for(j=0; j<=delay_time; j++);
+  66   1      }
+  67          
+  68          
+  69          /********************************************
+  70          *function:	timer 0 interrupt function for count time 
+  71          *********************************************/
+  72          void timer_0() interrupt 1
+  73          {
+  74   1      	TH0 = (65536 - 50000) / 256;
+  75   1      	TL0 = (65536 - 50000) % 256;
+  76   1      	count++;
+  77   1      	if(count==20){
+  78   2      		count = 0;
+  79   2      		countTime--;			//countTime is a global value in order to ensure the current number
+  80   2      		if(countTime < 0){
+  81   3      			countTime = 59;			
+  82   3      		}
+  83   2      		ten = countTime / 10;
+  84   2      		unit = countTime % 10;
+  85   2      	}	
+  86   1      }
+  87          
+  88          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    209    ----
+   CODE SIZE        =    212    ----
    CONSTANT SIZE    =     16    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

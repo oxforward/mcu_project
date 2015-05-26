@@ -1,0 +1,3 @@
+".\output\exam4.obj" 
+TO ".\output\exam4shsh" 
+PRINT(".\exam4shsh.m51") RAMSIZE(256) 

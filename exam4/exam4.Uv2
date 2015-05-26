@@ -26,7 +26,7 @@ Options 1,0,0  // Target 'Target 1'
  OrgReg (ÿAtmel\)
  TgStat=0
  OutDir (.\output\)
- OutName (exam4)
+ OutName (exam4shsh)
  GenApp=1
  GenLib=0
  GenHex=1
@@ -43,7 +43,7 @@ Options 1,0,0  // Target 'Target 1'
  T51FL=80
  CBANKS5=0
  XBANKS5=0
- RCB51 { 0,0,0,0,0,0,0,1,0 }
+ RCB51 { 0,0,0,0,0,255,255,0,0 }
  RXB51 { 0,0,0,0,0,0,0,0,0 }
  OCM51 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
  OCR51 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
