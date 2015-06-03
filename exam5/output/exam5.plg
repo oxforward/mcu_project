@@ -1,0 +1,162 @@
+Build target 'Target 1'
+compiling exam5.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DIV_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MUL_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DECRESE_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DIV_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 0046H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MUL_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 00ADH
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DECRESE_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 0114H
+
+creating hex file from ".\output\exam5"...
+".\output\exam5" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling exam5.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DIV_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MUL_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DECRESE_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DIV_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 0046H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MUL_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 00ADH
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DECRESE_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 0114H
+
+creating hex file from ".\output\exam5"...
+".\output\exam5" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling exam5.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DIV_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MUL_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DECRESE_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DIV_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 0046H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MUL_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 00ADH
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DECRESE_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 0114H
+
+creating hex file from ".\output\exam5"...
+".\output\exam5" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling exam5.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_PLUS_FUNCTION?EXAM5
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DIV_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MUL_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DECRESE_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DIV_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 004CH
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MUL_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 00B9H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DECRESE_FUNCTION
+    MODULE:  .\output\exam5.obj (EXAM5)
+    ADDRESS: 0126H
+
+creating hex file from ".\output\exam5"...
+".\output\exam5" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling exam5.c...
+linking...
+creating hex file from ".\output\exam5"...
+".\output\exam5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling exam5.c...
+linking...
+creating hex file from ".\output\exam5"...
+".\output\exam5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling exam5.c...
+.\USER\EXAM5.C(241): warning C235: parameter 1: different types
+linking...
+creating hex file from ".\output\exam5"...
+".\output\exam5" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling exam5.c...
+linking...
+creating hex file from ".\output\exam5"...
+".\output\exam5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling exam5.c...
+linking...
+creating hex file from ".\output\exam5"...
+".\output\exam5" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling exam5.c...
+linking...
+creating hex file from ".\output\exam5"...
+".\output\exam5" - 0 Error(s), 0 Warning(s).

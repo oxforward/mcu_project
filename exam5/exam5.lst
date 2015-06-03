@@ -1,4 +1,4 @@
-C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:54:25 PAGE 1   
+C51 COMPILER V6.12  EXAM5                                                                  06/03/2015 10:01:52 PAGE 1   
 
 
 C51 COMPILER V6.12, COMPILATION OF MODULE EXAM5
@@ -11,7 +11,7 @@ stmt level    source
    1          /************************************
    2          *name:		MatrixKeyBoard
    3          *function:	4×4MatrixKeyBoardKeyboard encoding rules define themselves
-   4          *			correspond to the number keys 0-9, A-F, 
+   4          *			correspond to the number keys 0-9, key2_value-F, 
    5          *			press the corresponding button to display 
    6          *			in the digital tube display the corresponding data.
    7          *
@@ -26,182 +26,282 @@ stmt level    source
   16          0x80, 0x90, 0x88, 0x83,
   17          0xc6, 0xa1, 0x86, 0x8e};
   18          
-  19          sbit sw = P3^7;
-  20          
-  21          void matrixKeyScan();
-  22          void display(uchar key);
-  23          void delay_on(uint delay_time);
+  19          
+  20          sbit S1 = P1^0;
+  21          sbit S2 = P1^1;
+  22          sbit S3 = P1^2;
+  23          sbit S4 = P1^3;
   24          
-  25          void main()
-  26          {
-  27   1      	sw = 1;
-  28   1      	while(1){
-  29   2      		matrixKeyScan();
-  30   2      	}
-  31   1      }
-  32          
-  33          
-  34          
-  35          void matrixKeyScan()
-  36          {
-  37   1      	uchar temp, key;
-  38   1      	P2 = 0xfe;					//a low level is given the first line
-  39   1      	temp = P2;
-  40   1      	temp &= 0xf0;				
-  41   1      	if(temp!=0xf0){				//Judge the high 4 bits if a hign level
-  42   2      		delay_on(3);			//debouncing
-  43   2      		temp = P2;
-  44   2      		temp &= 0xf0;
-  45   2      		if(temp!=0xf0){			//ensure a button is pressed
-  46   3      			temp = P2;				
-  47   3      			switch(temp){		//to ensure which button is pressed in detial
-  48   4      				case 0xee:	
-  49   4      					key = 0;
-  50   4      					break;
-  51   4      				case 0xde:
-  52   4      					key = 1;
-  53   4      					break;
-  54   4      				case 0xbe:
-C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:54:25 PAGE 2   
+  25          uint matrixKeyScan();
+  26          void display(uint key2_value);
+  27          void delay_on(uint delay_time);
+  28          void result();
+  29          
+  30          
+  31          uint key;
+  32          uint key2 = 0;
+  33          uint key3 = 0;
+  34          uint symble;
+  35          
+  36          int thousand,hundred,ten, unit;
+  37          	
+  38          void main()
+  39          {
+  40   1      	while(1){
+  41   2      		display(matrixKeyScan());
+  42   2      	}
+  43   1      }
+  44          
+  45          
+  46          
+  47          uint matrixKeyScan()
+  48          {
+  49   1      	/*********************************************************
+  50   1      	1111111111111111111111111111111111111111111111111111111111
+  51   1      	*********************************************************/
+  52   1      	uchar temp;
+  53   1      	P2 = 0xfe;					
+  54   1      	temp = P2;					
+C51 COMPILER V6.12  EXAM5                                                                  06/03/2015 10:01:52 PAGE 2   
 
-  55   4      					key = 2;
-  56   4      					break;
-  57   4      				case 0x7e:
-  58   4      					key = 3;
-  59   4      					break;
-  60   4      			}
-  61   3      			while(temp!=0xf0){	//wait for the pressed button being released
-  62   4      				temp = P2;
-  63   4      				temp &= 0xf0;
-  64   4      			}
-  65   3      			display(key);		//Digital tube display the value  
-  66   3      		}
-  67   2      	}
-  68   1      
-  69   1      	P2 = 0xfd;					//a low level is given the second line
-  70   1      	temp = P2;
-  71   1      	temp &= 0xf0;				
-  72   1      	if(temp!=0xf0){				
-  73   2      		delay_on(3);			
-  74   2      		temp = P2;
-  75   2      		temp &= 0xf0;
-  76   2      		if(temp!=0xf0){			
-  77   3      			temp = P2;			
-  78   3      			switch(temp){		
-  79   4      				case 0xed:	
-  80   4      					key = 4;
-  81   4      					break;
-  82   4      				case 0xdd:
-  83   4      					key = 5;
-  84   4      					break;
-  85   4      				case 0xbd:
-  86   4      					key = 6;
-  87   4      					break;
-  88   4      				case 0x7d:
-  89   4      					key = 7;
-  90   4      					break;
-  91   4      			}
-  92   3      			while(temp!=0xf0){			
-  93   4      				temp = P2;
-  94   4      				temp &= 0xf0;
-  95   4      			}
-  96   3      			display(key);		
-  97   3      		}
-  98   2      	}
-  99   1      
- 100   1      	P2 = 0xfb;						//low level is given the third line
- 101   1      	temp = P2;
- 102   1      	temp &= 0xf0;				
- 103   1      	if(temp!=0xf0){				
- 104   2      		delay_on(3);			
- 105   2      		temp = P2;
- 106   2      		temp &= 0xf0;
- 107   2      		if(temp!=0xf0){				
- 108   3      			temp = P2;			
- 109   3      			switch(temp){			
- 110   4      				case 0xeb:	
- 111   4      					key = 8;
- 112   4      					break;
- 113   4      				case 0xdb:
- 114   4      					key = 9;
+  55   1      	temp &= 0xf0;				
+  56   1      	if(temp!=0xf0){				
+  57   2      		delay_on(3);			
+  58   2      		temp = P2;
+  59   2      		temp &= 0xf0;
+  60   2      		if(temp!=0xf0){			
+  61   3      			temp = P2;				
+  62   3      			switch(temp){
+  63   4      				case 0xee:	
+  64   4      					key = 7;
+  65   4      					break;
+  66   4      				case 0xde:
+  67   4      					key = 8;
+  68   4      					break;
+  69   4      				case 0xbe:
+  70   4      					key = 9;
+  71   4      					break;
+  72   4      				case 0x7e:
+  73   4      					symble = 1;
+  74   4      					key3 = key2;
+  75   4      					key2 = 0;		//除法;
+  76   4      					break;
+  77   4      				default:
+  78   4      					break;
+  79   4      			}
+  80   3      			while(temp!=0xf0){	
+  81   4      				temp = P2;
+  82   4      				temp &= 0xf0;
+  83   4      			} 
+  84   3      			key2 = key2 * 10 + key ;
+  85   3      		}
+  86   2      	}
+  87   1      	/********************************************************
+  88   1      	222222222222222222222222222222222222222222222222222222222
+  89   1      	********************************************************/
+  90   1      	P2 = 0xfd;					
+  91   1      	temp = P2;
+  92   1      	temp &= 0xf0;				
+  93   1      	if(temp!=0xf0){				
+  94   2      		delay_on(3);			
+  95   2      		temp = P2;
+  96   2      		temp &= 0xf0;
+  97   2      		if(temp!=0xf0){			
+  98   3      			temp = P2;			
+  99   3      			switch(temp){		
+ 100   4      				case 0xed:	
+ 101   4      					key = 4;
+ 102   4      					break;
+ 103   4      				case 0xdd:
+ 104   4      					key = 5;
+ 105   4      					break;
+ 106   4      				case 0xbd:
+ 107   4      					key = 6;
+ 108   4      					break;
+ 109   4      				case 0x7d:
+ 110   4      					symble = 2;
+ 111   4      					key3 = key2;
+ 112   4      					key2 = 0;	//乘法
+ 113   4      					break;
+ 114   4      				default:
  115   4      					break;
- 116   4      				case 0xbb:
-C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:54:25 PAGE 3   
+ 116   4      			}
+C51 COMPILER V6.12  EXAM5                                                                  06/03/2015 10:01:52 PAGE 3   
 
- 117   4      					key = 10;
- 118   4      					break;
- 119   4      				case 0x7b:
- 120   4      					key = 11;
- 121   4      					break;
- 122   4      			}
- 123   3      			while(temp!=0xf0){				
- 124   4      				temp = P2;
- 125   4      				temp &= 0xf0;
- 126   4      			}
- 127   3      			display(key);		
- 128   3      		}
- 129   2      	}
- 130   1      
- 131   1      	P2 = 0xf7;						//low level is given the fourth line
- 132   1      	temp = P2;
- 133   1      	temp &= 0xf0;					
- 134   1      	if(temp!=0xf0){					
- 135   2      		delay_on(3);				
- 136   2      		temp = P2;
- 137   2      		temp &= 0xf0;
- 138   2      		if(temp!=0xf0){				
- 139   3      			temp = P2;				
- 140   3      			switch(temp){			
- 141   4      				case 0xe7:	
- 142   4      					key = 12;
- 143   4      					break;
- 144   4      				case 0xd7:
- 145   4      					key = 13;
- 146   4      					break;
- 147   4      				case 0xb7:
- 148   4      					key = 14;
- 149   4      					break;
- 150   4      				case 0x77:
- 151   4      					key = 15;
+ 117   3      			while(temp!=0xf0){			
+ 118   4      				temp = P2;
+ 119   4      				temp &= 0xf0;
+ 120   4      			}
+ 121   3      			key2 = key2 * 10 + key ;
+ 122   3      		}
+ 123   2      	}
+ 124   1      	/********************************************************
+ 125   1      	333333333333333333333333333333333333333333333333333333333
+ 126   1      	********************************************************/
+ 127   1      	P2 = 0xfb;						
+ 128   1      	temp = P2;
+ 129   1      	temp &= 0xf0;				
+ 130   1      	if(temp!=0xf0){				
+ 131   2      		delay_on(3);			
+ 132   2      		temp = P2;
+ 133   2      		temp &= 0xf0;
+ 134   2      		if(temp!=0xf0){				
+ 135   3      			temp = P2;			
+ 136   3      			switch(temp){			
+ 137   4      				case 0xeb:	
+ 138   4      					key = 1;
+ 139   4      					break;
+ 140   4      				case 0xdb:
+ 141   4      					key = 2;
+ 142   4      					break;
+ 143   4      				case 0xbb:
+ 144   4      					key = 3;
+ 145   4      					break;
+ 146   4      				case 0x7b:
+ 147   4      					symble = 3;			//decrese
+ 148   4      					key3 = key2;
+ 149   4      					key2 = 0;
+ 150   4      					break;
+ 151   4      				default:
  152   4      					break;
  153   4      			}
  154   3      			while(temp!=0xf0){				
  155   4      				temp = P2;
  156   4      				temp &= 0xf0;
  157   4      			}
- 158   3      			display(key);		
- 159   3      		}
- 160   2      	}
- 161   1      }
- 162          
- 163          
- 164          
- 165          void delay_on(uint delay_time)
- 166          {
- 167   1      	uint i;
- 168   1      	uint j;
- 169   1      	for(i=0;i<=delay_time;i++)
- 170   1      		for(j=0;j<=delay_time;j++);
- 171   1      }
- 172          
- 173          
- 174          
- 175          void display(uchar key)
- 176          {
- 177   1      	P0 = table[key];
- 178   1      }
-C51 COMPILER V6.12  EXAM5                                                                  05/15/2015 20:54:25 PAGE 4   
+ 158   3      					
+ 159   3      			key2 = key2 * 10 + key ;
+ 160   3      		}
+ 161   2      	}
+ 162   1      	/********************************************************
+ 163   1      	444444444444444444444444444444444444444444444444444444444
+ 164   1      	*********************************************************/
+ 165   1      	P2 = 0xf7;						
+ 166   1      	temp = P2;
+ 167   1      	temp &= 0xf0;					
+ 168   1      	if(temp!=0xf0){					
+ 169   2      		delay_on(3);				
+ 170   2      		temp = P2;
+ 171   2      		temp &= 0xf0;
+ 172   2      		if(temp!=0xf0){				
+ 173   3      			temp = P2;				
+ 174   3      			switch(temp){			
+ 175   4      				case 0xe7:	
+ 176   4      					key2 = 0;			//on/c
+ 177   4      					key3 = 0;
+ 178   4      					break;
+C51 COMPILER V6.12  EXAM5                                                                  06/03/2015 10:01:52 PAGE 4   
 
- 179          
- 180          
+ 179   4      				case 0xd7:
+ 180   4      					key = 0;			//0
+ 181   4      					break;
+ 182   4      				case 0xb7:
+ 183   4      					result();			//等号
+ 184   4      					
+ 185   4      					break;
+ 186   4      				case 0x77:
+ 187   4      					symble = 4;
+ 188   4      					key3 = key2;
+ 189   4      					key2 = 0;					//加法						
+ 190   4      					break;
+ 191   4      				default:
+ 192   4      					break;
+ 193   4      			}
+ 194   3      			while(temp!=0xf0){				
+ 195   4      				temp = P2;
+ 196   4      				temp &= 0xf0;
+ 197   4      			}
+ 198   3      			//display(key);	
+ 199   3      			if(key == 0){
+ 200   4      				key2 = key2 * 10 + key;
+ 201   4      			}
+ 202   3      			
+ 203   3      		}
+ 204   2      	}
+ 205   1      	return (key2);
+ 206   1      }
+ 207          
+ 208          
+ 209          void result()
+ 210          {
+ 211   1      	switch(symble){
+ 212   2      		case 1:
+ 213   2      			key2 = key3 / key2;
+ 214   2      			break;
+ 215   2      		case 2:
+ 216   2      			key2 = key3 * key2;
+ 217   2      			break;
+ 218   2      		case 3:
+ 219   2      			key2 = key3  - key2;
+ 220   2      			break;
+ 221   2      		case 4:
+ 222   2      			key2 = key3 + key2;
+ 223   2      			break;
+ 224   2      		default:
+ 225   2      			break;
+ 226   2      		
+ 227   2      			
+ 228   2      	}
+ 229   1      }
+ 230          
+ 231          
+ 232          void delay_on(uint delay_time)
+ 233          {
+ 234   1      	uint i;
+ 235   1      	uint j;
+ 236   1      	for(i=0;i<=delay_time;i++)
+ 237   1      		for(j=0;j<=delay_time;j++);
+ 238   1      }
+ 239          
+ 240          void display(uint key2_value)
+C51 COMPILER V6.12  EXAM5                                                                  06/03/2015 10:01:52 PAGE 5   
+
+ 241          {
+ 242   1      	unsigned int thousand = 0, hundred = 0, ten = 0, unit = 0;
+ 243   1      	thousand=key2_value / 1000;
+ 244   1      	hundred=(key2_value % 1000) / 100;
+ 245   1      	ten=((key2_value % 1000) % 100) / 10;
+ 246   1      	unit=((key2_value % 1000) % 100) % 10;
+ 247   1      		
+ 248   1      	  
+ 249   1      	S1=1;
+ 250   1      	S2=1;
+ 251   1      	S3=1;
+ 252   1      	S4=1;
+ 253   1      	P0=table[unit];
+ 254   1      	S4=0;
+ 255   1      	delay_on(5);
+ 256   1      	
+ 257   1      	if(key2_value>= 10){
+ 258   2      		S4=1;
+ 259   2      		P0=table[ten];
+ 260   2      		S3=0;
+ 261   2      		delay_on(5);
+ 262   2      	  }
+ 263   1      	if(key2_value>= 100){
+ 264   2      		S3=1;
+ 265   2      		P0=table[hundred];
+ 266   2      		S2=0;
+ 267   2      		delay_on(5);
+ 268   2      	  }
+ 269   1      	if(key2_value>= 1000){	
+ 270   2      		S2=1;
+ 271   2      		P0=table[thousand];
+ 272   2      		S1=0;
+ 273   2      		delay_on(5);
+ 274   2      	}
+ 275   1      		
+ 276   1      }
+ 277          
+ 278          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    407    ----
+   CODE SIZE        =    893    ----
    CONSTANT SIZE    =     16    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----       2
+   DATA SIZE        =     16       9
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
